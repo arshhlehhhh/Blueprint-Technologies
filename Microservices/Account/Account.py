@@ -24,7 +24,7 @@ class Account(db.Model):
     __tablename__ = 'Account'
 
     user_id = db.Column(db.Integer, primary_key = True)
-    password = db.Column(db.String(45), nullable = False)
+    password = db.Column(db.String(150), nullable = False)
     name = db.Column(db.String(45), nullable = False)
 
     def __init__(self, user_id, password, name):
