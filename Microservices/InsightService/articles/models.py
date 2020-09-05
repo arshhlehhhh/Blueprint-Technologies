@@ -3,5 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Articles(models.Model):
-    articleFileName = models.TextField()
-    datetime = models.DateField()
+    distinctID = models.CharField(max_length=255)
+    articleData = models.JSONField()
+    timestamp = models.DateField()
+    
