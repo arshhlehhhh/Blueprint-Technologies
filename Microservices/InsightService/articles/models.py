@@ -3,4 +3,6 @@ from django.db import models
 # Create your models here.
 
 class Articles(models.Model):
-    articleID = 
+    articleFileName = models.TextField()
+    datetime = models.DateField()
+
