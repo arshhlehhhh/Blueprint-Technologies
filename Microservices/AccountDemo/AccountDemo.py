@@ -22,10 +22,10 @@ class AccountDemo(db.Model):
 
     __tablename__ = 'Account_Demo'
 
-    user_id = db.Column(db.String(45), primary_key = True)
-    scenerio_id = db.Column(db.String(150), nullable = False)
-    balance = db.Column(db.DECIMAL(10,0), nullable = False)
-    holding = db.Column(db.String(45), nullable = False)
+    user_id = db.Column(db.String(255), primary_key = True)
+    scenerio_id = db.Column(db.String(255), nullable = False)
+    balance = db.Column(db.Float(), nullable = False)
+    holding = db.Column(db.String(), nullable = False)
 
     def __init__(self, user_id, scenerio_id, balance, holding):
         self.user_id = user_id
