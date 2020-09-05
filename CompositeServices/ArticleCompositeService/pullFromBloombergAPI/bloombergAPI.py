@@ -80,7 +80,7 @@ def _get_articles_json():
                                     "SentimentScore": result["SentimentScore"],
                                     "GlossaryTerms": present_terms
                                 },
-                                "timestamp": datetime.date.today()
+                                "timestamp": datetime.date.today().strftime('%Y-%m-%d')
                             }
                             final_result.append(agg_result)
                     except:
@@ -89,7 +89,7 @@ def _get_articles_json():
         print(json.dumps(final_result, indent=4, sort_keys=True))
         article_url = 'http://192.168.1.226:8051/api/pusharticles'
 
-        x = requests.post(url, data=final_result)
+        x = requests.post(article_url, json=final_result)
         return x
     except Exception as e:
         print(e)
