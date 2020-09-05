@@ -24,7 +24,7 @@ class DemoGame(db.Model):
     __tablename__ = 'Demo_Game'
 
     scenerio_id = db.Column(db.String(255), primary_key = True)
-    message = db.Column(db.String(255), nullable = False)
+    message = db.Column(db.String(4294000000), nullable = False)
     startDate = db.Column(db.DateTime(), nullable = False)
     endDate = db.Column(db.DateTime(), nullable = False)
 

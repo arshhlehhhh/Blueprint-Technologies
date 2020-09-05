@@ -24,8 +24,8 @@ class AccountDemo(db.Model):
 
     user_id = db.Column(db.String(255), primary_key = True)
     scenerio_id = db.Column(db.String(255), nullable = False)
-    balance = db.Column(db.Float(), nullable = False)
-    holding = db.Column(db.String(), nullable = False)
+    balance = db.Column(db.Numeric(), nullable = False)
+    holding = db.Column(db.String(4294000000), nullable = False)
 
     def __init__(self, user_id, scenerio_id, balance, holding):
         self.user_id = user_id

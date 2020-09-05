@@ -25,7 +25,7 @@ class Stocks(db.Model):
     date = db.Column(db.DateTime(), primary_key = True)
     ticker = db.Column(db.String(255), primary_key = True)
     name = db.Column(db.String(255), nullable = False)
-    price = db.Column(db.Float(), nullable = False)
+    price = db.Column(db.Numeric(), nullable = False)
     category = db.Column(db.String(255), nullable = False)
 
     def __init__(self, date, ticker, name, price, category):
