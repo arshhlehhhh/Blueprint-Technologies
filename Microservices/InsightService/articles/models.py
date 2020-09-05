@@ -5,4 +5,3 @@ from django.db import models
 class Articles(models.Model):
     articleFileName = models.TextField()
     datetime = models.DateField()
-
