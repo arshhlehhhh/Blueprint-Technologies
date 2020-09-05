@@ -11,6 +11,10 @@
     <!-- Title -->
     <title>Credit - Loan &amp; Credit Company HTML Template</title>
 
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico">
 
@@ -20,6 +24,95 @@
 </head>
 
 <body>
+
+    <!-- <script>
+        $(async () => {
+            $.get("http://192.168.1.226:8050/api/getallglossary", function (data) {
+                alert(data[4]["term"].toString())
+                // alert("Load was performed.")
+                // var profileJSON = data;
+                sessionStorage.setItem("glossary", data);
+                // console.log(profileJSON.toString());
+            });
+
+
+            try {
+
+
+            } catch (error) {
+                // console.log('error in retrieving profiles')
+            }
+        });
+
+
+
+
+
+
+    </script> -->
+
+    <!--#### Register Modal Start ####-->
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Register Account</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input class="form-control" id="register_name" type="text" placeholder="Name"><br>
+                    <input class="form-control" id="register_username" type="text" placeholder="Username"><br>
+                    <input class="form-control" id="register_password" type="password" placeholder="Password"><br>
+                    <input class="form-control" id="register_confirm_password" type="password"
+                        placeholder="Confirm Password">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="registerAccount()">Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!--#### Register Modal End ####-->
+
+    <!--#### Log In Modal Start ####-->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Register Account</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input class="form-control" id="login_username" type="text" placeholder="Username"><br>
+                    <input class="form-control" id="login_password" type="password" placeholder="Password"><br>
+                </div>
+
+                <script>
+                    loggedin_user = sessionStorage.getItem("loggedin_user");
+            // alert(loggedin_user);
+                </script>
+
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="loginAccount()">Log In</button>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!--#### Log In Modal End ####-->
+
     <!-- Preloader -->
     <div class="preloader d-flex align-items-center justify-content-center">
         <div class="lds-ellipsis">
@@ -44,8 +137,11 @@
 
                         <!-- Top Contact Info -->
                         <div class="top-contact-info d-flex align-items-center">
-                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="25 th Street Avenue, Los Angeles, CA"><img src="img/core-img/placeholder.png" alt=""> <span>25 th Street Avenue, Los Angeles, CA</span></a>
-                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="office@yourfirm.com"><img src="img/core-img/message.png" alt=""> <span>office@yourfirm.com</span></a>
+                            <a href="#" data-toggle="tooltip" data-placement="bottom"
+                                title="25 th Street Avenue, Los Angeles, CA"><img src="img/core-img/placeholder.png"
+                                    alt=""> <span>25 th Street Avenue, Los Angeles, CA</span></a>
+                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="office@yourfirm.com"><img
+                                    src="img/core-img/message.png" alt=""> <span>office@yourfirm.com</span></a>
                         </div>
                     </div>
                 </div>
@@ -78,7 +174,7 @@
                                     <li><a href="index.html">Home</a></li>
                                     <li><a href="about.html">About Us</a></li>
                                     <li><a href="decipher_news.html">Decipher News</a></li>
-                                    
+
                                     <li><a href="demo_account.html">Demo Account</a></li>
                                     <li><a href="blog.html">Blog</a></li>
                                     <li><a href="glossary.html">Glossary</a></li>
@@ -90,7 +186,16 @@
 
                         <!-- Contact -->
                         <div class="contact">
-                            <a href="#"><img src="img/core-img/call2.png" alt=""> +800 49 900 900</a>
+                            <button id="login_btn" type="button" style="margin-top:15%;" class="btn btn-info"
+                                data-toggle="modal" data-target="#loginModal">Log In</button>
+                            <button id="register_btn" type="button" style="margin-top:15%;" class="btn btn-primary"
+                                data-toggle="modal" data-target="#registerModal">Register</button>
+
+
+                            <button id="logout_btn" type="button" style="margin-top:4%;" class="btn btn-danger"
+                                onclick="logout()">Logout</button>
+                            <img id="profile_picture" src="img/core-img/profile_icon.png"
+                                style="width:7%;margin-top:4%;border-radius:50%;;" alt="Avatar">
                         </div>
                     </nav>
                 </div>
@@ -121,27 +226,28 @@
 
 
     <!-- ###### Modal Start #####-->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Pandemic</h5> <!-- Keyword -->
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Pandemic</h5> <!-- Keyword -->
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <strong>Key Learning Point</strong>
+                    <p>The risk for investments will increase!</p>
+
+                    <strong>Actionable Steps</strong>
+                    <p>Buy more defensive stocks and sell cyclic stocks.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
             </div>
-            <div class="modal-body">
-                <strong>Key Learning Point</strong>
-                <p>The risk for investments will increase!</p>
-                
-                <strong>Actionable Steps</strong>
-                <p>Buy more defensive stocks and sell cyclic stocks.</p>
-            </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
         </div>
     </div>
     <!-- ##### Modal End ##### -->
@@ -154,119 +260,206 @@
                     <!-- Section Heading -->
                     <div class="section-heading text-center mb-100">
                         <div class="line"></div>
-                        
-                        <table class="table table-hover table-dark">
+
+                        <table id="myTable" class="table table-hover table-dark">
                             <thead>
-                              <tr>
-                                <th scope="col">Key Terms</th>
-                                <th scope="col">Deciphered!</th>
-                                <th scope="col">Action Steps for You!</th>
-                              </tr>
+                                <tr>
+                                    <th scope="col">Key Terms</th>
+                                    <th scope="col">Deciphered!</th>
+                                    <th scope="col">Action Steps for You!</th>
+                                </tr>
                             </thead>
                             <tbody>
-                              <tr>
-                                <th scope="row">Activist Investor</th>
-                                <td>An activist investor is an investor who purchases large numbers of a public company’s shares (usually in an attempt to get a seat on its board) to try to effect changes in the company that they believe will be positive for the share price. </td>
-                                <td>This can be good or bad for the company, often depending on whether the activist’s plans offer potential for long-term value or simply a short-term boost to the share price. The stock price will likely increase in the short run!</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">Approval</th>
-                                <td>Approval from a Regulatory Body to go through with a purchase of another company, to get a patent or license to sell a drug</td>
-                                <td>Getting an approval likely means the stock price will skyrocket! Consider buying the stock</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">Bear Market</th>
-                                <td>A bear market is a general term used to describe a market in which a type of investment is going down in value over a period of time</td>
-                                <td></td>
-                              </tr>
-                              <tr>
-                                  <th scope"row">Benchmark</th>
-                                  <td>Refers to a basket of stocks that refelct the average of all companies in it. For e.g An index like the S&P500. </td>
-                                  <td></td>  
+                            
+
+                                <script>
+                                    var table = document.getElementById("myTable");
+
+                                    $(async () => {
+                                        $.get("http://192.168.1.226:8050/api/getallglossary", function (data) {
+                                            // alert(data[4]["term"].toString())
+                                            // alert("Load was performed.")
+                                            // var profileJSON = data;
+                                            // sessionStorage.setItem("glossary", data);
+                                            // console.log(profileJSON.toString())
+                                            alert(data[4]["term"]);
+                                            // document.open();
+                                            for (var i = 1; i < data.length+1; i++) {
+                                                // alert("hello");
+                                                // var glossary = sessionStorage.getItem("glossary");
+                                                
+                                                // var tr = tbl.insertRow();
+                                                // var td = tr.insertCell();
+                                                // td.appendChild(document.createTextNode(data[i]["term"]));
+                                                // var tdd = tr.insertCell();
+                                                // tdd.appendChild(document.createTextNode(data[i]["description"]));
+                                                // var tddd = tr.insertCell();
+                                                // tddd.appendChild(document.createTextNode(data[i]["actionable"]));
+
+
+                                                // document.write("<tr><th scope='row'>");
+                                                // document.write(data[i]["term"]);
+                                                // document.write("</th><td>");
+                                                // document.write(data[i]["description"]);
+                                                // document.write("</td><td>");
+                                                // document.write(data[i]["actionable"]);
+                                                // document.write("</td></tr>");
+                                                
+                                                var row = table.insertRow(i);
+                                                var cell1 = row.insertCell(0);
+                                                var cell2 = row.insertCell(1);
+                                                var cell3 = row.insertCell(2);
+
+                                                cell1.innerHTML = data[i]["term"];
+                                                cell2.innerHTML = data[i]["description"];
+                                                cell3.innerHTML = data[i]["actionable"];
+
+                                                // console.log("<tr> <th scope='row'>");
+                                                // console.log(data[i]["term"]);
+                                                // console.log("</th> <t d>");
+                                                // console.log(data[i]["description"]);
+                                                // console.log("</td> <td>");
+                                                // console.log(data[i]["actionable"]);
+                                                // console.log("</td> </tr>");
+
+
+                                            }
+                                            document.close();
+                                        });
+
+
+                                        try {
+
+
+                                        } catch (error) {
+                                            // console.log('error in retrieving profiles')
+                                        }
+                                    });
+
+                                </script>
+
+
+                                <!-- <tr>
+                                    <th scope="row">Activist Investor</th>
+                                    <td>An activist investor is an investor who purchases large numbers of a public
+                                        company’s shares (usually in an attempt to get a seat on its board) to try to
+                                        effect changes in the company that they believe will be positive for the share
+                                        price. </td>
+                                    <td>This can be good or bad for the company, often depending on whether the
+                                        activist’s plans offer potential for long-term value or simply a short-term
+                                        boost to the share price. The stock price will likely increase in the short run!
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Approval</th>
+                                    <td>Approval from a Regulatory Body to go through with a purchase of another
+                                        company, to get a patent or license to sell a drug</td>
+                                    <td>Getting an approval likely means the stock price will skyrocket! Consider buying
+                                        the stock</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Bear Market</th>
+                                    <td>A bear market is a general term used to describe a market in which a type of
+                                        investment is going down in value over a period of time</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope"row">Benchmark</th>
+                                    <td>Refers to a basket of stocks that refelct the average of all companies in it.
+                                        For e.g An index like the S&P500. </td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <th scope"row">Blue Chip Stock</th>
-                                    <td>A blue-chip stock is that of a large, established, stable company that’s been around for a while and is therefore generally able to keep trucking along in good times and bad.</td>
-                                    <td></td>  
+                                    <td>A blue-chip stock is that of a large, established, stable company that’s been
+                                        around for a while and is therefore generally able to keep trucking along in
+                                        good times and bad.</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <th scope"row">Bond</th>
                                     <td></td>
-                                    <td></td>  
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <th scope"row">Bull Market</th>
                                     <td></td>
-                                    <td></td>  
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <th scope"row">Central bank</th>
                                     <td></td>
-                                    <td></td>  
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <th scope"row">Commodities</th>
                                     <td></td>
-                                    <td></td>  
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <th scope"row">Consumer Price Index (CPI)</th>
                                     <td></td>
-                                    <td></td>  
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <th scope"row">Credit Rating</th>
                                     <td></td>
-                                    <td></td>  
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <th scope"row">Currency</th>
                                     <td></td>
-                                    <td></td>  
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <th scope"row">Currency Peg</th>
                                     <td></td>
-                                    <td></td>  
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <th scope"row">Default</th>
                                     <td></td>
-                                    <td></td>  
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <th scope"row">Deflation</th>
                                     <td></td>
-                                    <td></td>  
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <th scope"row">Downgrade</th>
                                     <td></td>
-                                    <td></td>  
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <th scope"row">EBITDA</th>
                                     <td></td>
-                                    <td></td>  
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <th scope"row">Fed</th>
                                     <td></td>
-                                    <td></td>  
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <th scope"row">Fiscal Policy</th>
                                     <td></td>
-                                    <td></td>  
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <th scope"row">Fiscal Stimulas</th>
                                     <td></td>
-                                    <td></td>  
-                                </tr>
+                                    <td></td>
+                                </tr>-->
+                                
+
+
+
+
+                                    
                                 
                             </tbody>
-                          </table>
+                        </table> 
 
                     </div>
                 </div>
@@ -274,15 +467,15 @@
 
             <div class="row">
 
-                
+
 
 
 
             </div>
 
-               
-    
-            
+
+
+
         </div>
     </section>
     <!-- ##### Services Area End ###### -->
@@ -298,7 +491,10 @@
                     <p>Bold desing and beyound</p>
                     <h2>Easy and Fast credits</h2>
                 </div>
-                <h6>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis egestas sem. Duis non volutpat arcu, eu mollis tellus. Sed finibus aliquam neque sit amet sod ales. Maecenas sed magna tempor, efficitur maur is in, sollicitudin augue. Praesent pretium finibus quam.</h6>
+                <h6>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis
+                    egestas sem. Duis non volutpat arcu, eu mollis tellus. Sed finibus aliquam neque sit amet sod ales.
+                    Maecenas sed magna tempor, efficitur maur is in, sollicitudin augue. Praesent pretium finibus quam.
+                </h6>
                 <a href="#" class="btn credit-btn btn-2 box-shadow">Read More</a>
             </div>
         </div>
@@ -320,7 +516,10 @@
                     <p>Bold desing and beyound</p>
                     <h2>$1000 non the spot</h2>
                 </div>
-                <h6>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis egestas sem. Duis non volutpat arcu, eu mollis tellus. Sed finibus aliquam neque sit amet sod ales. Maecenas sed magna tempor, efficitur maur is in, sollicitudin augue. Praesent pretium finibus quam.</h6>
+                <h6>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis
+                    egestas sem. Duis non volutpat arcu, eu mollis tellus. Sed finibus aliquam neque sit amet sod ales.
+                    Maecenas sed magna tempor, efficitur maur is in, sollicitudin augue. Praesent pretium finibus quam.
+                </h6>
                 <a href="#" class="btn credit-btn box-shadow">Read More</a>
             </div>
         </div>
@@ -337,36 +536,48 @@
                     <div class="accordions mb-100" id="accordion" role="tablist" aria-multiselectable="true">
                         <!-- single accordian area -->
                         <div class="panel single-accordion">
-                            <h6><a role="button" class="" aria-expanded="true" aria-controls="collapseOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Morbi ut dapibus dui. Sed ut iaculis elit, quis varius
+                            <h6><a role="button" class="" aria-expanded="true" aria-controls="collapseOne"
+                                    data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Morbi ut dapibus
+                                    dui. Sed ut iaculis elit, quis varius
                                     <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
                                     <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
-                                    </a></h6>
+                                </a></h6>
                             <div id="collapseOne" class="accordion-content collapse show">
-                                <p>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis egestas sem. Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis egestas sem. </p>
+                                <p>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies
+                                    orci, lobortis egestas sem. Morbi ut dapibus dui. Sed ut iaculis elit, quis varius
+                                    mauris. Integer ut ultricies orci, lobortis egestas sem. </p>
                             </div>
                         </div>
                         <!-- single accordian area -->
                         <div class="panel single-accordion">
                             <h6>
-                                <a role="button" class="collapsed" aria-expanded="true" aria-controls="collapseTwo" data-parent="#accordion" data-toggle="collapse" href="#collapseTwo">Ert dapibus dui. Sed ut iaculis elit, quis vgyu
-                                        <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
-                                        <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
-                                        </a>
+                                <a role="button" class="collapsed" aria-expanded="true" aria-controls="collapseTwo"
+                                    data-parent="#accordion" data-toggle="collapse" href="#collapseTwo">Ert dapibus dui.
+                                    Sed ut iaculis elit, quis vgyu
+                                    <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                    <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                                </a>
                             </h6>
                             <div id="collapseTwo" class="accordion-content collapse">
-                                <p>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis egestas sem. Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis egestas sem. </p>
+                                <p>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies
+                                    orci, lobortis egestas sem. Morbi ut dapibus dui. Sed ut iaculis elit, quis varius
+                                    mauris. Integer ut ultricies orci, lobortis egestas sem. </p>
                             </div>
                         </div>
                         <!-- single accordian area -->
                         <div class="panel single-accordion">
                             <h6>
-                                <a role="button" aria-expanded="true" aria-controls="collapseThree" class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseThree">Ert dapibus dui. Sed ut iaculis elit, quis vgyu
-                                        <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
-                                        <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
-                                    </a>
+                                <a role="button" aria-expanded="true" aria-controls="collapseThree" class="collapsed"
+                                    data-parent="#accordion" data-toggle="collapse" href="#collapseThree">Ert dapibus
+                                    dui. Sed ut iaculis elit, quis vgyu
+                                    <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                    <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                                </a>
                             </h6>
                             <div id="collapseThree" class="accordion-content collapse">
-                                <p>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis egestas sem. Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis egestas sem. </p>
+                                <p>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies
+                                    orci, lobortis egestas sem. Morbi ut dapibus dui. Sed ut iaculis elit, quis varius
+                                    mauris. Integer ut ultricies orci, lobortis egestas sem. </p>
                             </div>
                         </div>
                     </div>
@@ -384,7 +595,8 @@
     <!-- ##### FAQ Area End ###### -->
 
     <!-- ##### Newsletter Area Start ###### -->
-    <section class="newsletter-area section-padding-100 bg-img jarallax" style="background-image: url(img/bg-img/6.jpg);">
+    <section class="newsletter-area section-padding-100 bg-img jarallax"
+        style="background-image: url(img/bg-img/6.jpg);">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-sm-10 col-lg-8">
@@ -394,7 +606,8 @@
                             <input type="email" name="nl-email" id="nlemail" placeholder="Your e-mail">
                             <button type="submit">Subscribe</button>
                         </form>
-                        <p>Curabitur elit turpis, maximus quis ullamcorper sed, maximus eu neque. Cras ultrices erat nec auctor blandit.</p>
+                        <p>Curabitur elit turpis, maximus quis ullamcorper sed, maximus eu neque. Cras ultrices erat nec
+                            auctor blandit.</p>
                     </div>
                 </div>
             </div>
@@ -471,8 +684,10 @@
                             <div class="news-content">
                                 <a href="#">How to get the best loan?</a>
                                 <div class="news-meta">
-                                    <a href="#" class="post-author"><img src="img/core-img/pencil.png" alt=""> Jane Smith</a>
-                                    <a href="#" class="post-date"><img src="img/core-img/calendar.png" alt=""> April 26</a>
+                                    <a href="#" class="post-author"><img src="img/core-img/pencil.png" alt=""> Jane
+                                        Smith</a>
+                                    <a href="#" class="post-date"><img src="img/core-img/calendar.png" alt=""> April
+                                        26</a>
                                 </div>
                             </div>
                         </div>
@@ -485,8 +700,10 @@
                             <div class="news-content">
                                 <a href="#">A new way to get a loan</a>
                                 <div class="news-meta">
-                                    <a href="#" class="post-author"><img src="img/core-img/pencil.png" alt=""> Jane Smith</a>
-                                    <a href="#" class="post-date"><img src="img/core-img/calendar.png" alt=""> April 26</a>
+                                    <a href="#" class="post-author"><img src="img/core-img/pencil.png" alt=""> Jane
+                                        Smith</a>
+                                    <a href="#" class="post-date"><img src="img/core-img/calendar.png" alt=""> April
+                                        26</a>
                                 </div>
                             </div>
                         </div>
@@ -499,8 +716,10 @@
                             <div class="news-content">
                                 <a href="#">Finance you home</a>
                                 <div class="news-meta">
-                                    <a href="#" class="post-author"><img src="img/core-img/pencil.png" alt=""> Jane Smith</a>
-                                    <a href="#" class="post-date"><img src="img/core-img/calendar.png" alt=""> April 26</a>
+                                    <a href="#" class="post-author"><img src="img/core-img/pencil.png" alt=""> Jane
+                                        Smith</a>
+                                    <a href="#" class="post-date"><img src="img/core-img/calendar.png" alt=""> April
+                                        26</a>
                                 </div>
                             </div>
                         </div>
@@ -520,9 +739,14 @@
                             <a href="index.html" class="footer-logo"><img src="img/core-img/logo.png" alt=""></a>
 
                             <!-- Copywrite Text -->
-                            <p class="copywrite-text"><a href="#"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                            <p class="copywrite-text"><a href="#">
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                    Copyright &copy;
+                                    <script>document.write(new Date().getFullYear());</script> All rights reserved |
+                                    This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a
+                                        href="https://colorlib.com" target="_blank">Colorlib</a>
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -549,8 +773,235 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         function openModal() {
             // document.getElementById("demo").innerHTML = "YOU CLICKED ME!";
             $("#exampleModal").modal()
-            }
+        }
     </script>
+    <!-- #### Register Script Start #### -->
+    <script>
+
+
+        function showError(message) {
+
+            $("#error").remove();
+
+            $('#errormsg-container').append("<label id='error'>" + message + "</label>");
+
+        }
+
+
+
+
+        // myform.addEventListener('submit', function (event) {
+
+        //     event.preventDefault();
+
+        //     sendData();
+
+        // });
+
+
+
+
+        async function registerAccount() {
+
+
+            var username = document.getElementById("register_username").value;
+
+            var password = document.getElementById("register_password").value;
+
+            var confirm_password = document.getElementById("register_confirm_password").value;
+
+            var name = document.getElementById("register_name").value;
+
+            var serviceURL = "http://127.0.0.1:5001/account/" + username
+
+
+            if (password == confirm_password) {
+
+                // localStorage.email = customer.email;
+                try {
+
+                    const response =
+
+                        await fetch(
+
+                            serviceURL, {
+
+                            method: 'POST',
+
+                            headers: { "Content-Type": "application/json" },
+
+                            body: JSON.stringify({ password: password, name: name })
+
+                        }
+
+                        );
+
+
+
+                    const data = await response.json();
+
+                    var customer = data;
+                    location.reload();
+                    alert("Account Registered!");
+                    $('#registerModal').modal('hide');
+
+
+
+
+
+                } catch (error) {
+
+                    showError('There is a problem retrieving customer data, please try again later.<br />' + error);
+
+                }
+
+
+            }
+
+            else {
+
+                showError('Passwords do not match!');
+
+            }
+            // window.location.replace('/index.html')
+            location.reload();
+            $('#registerModal').modal('hide');
+
+
+
+
+
+
+        }
+
+    </script>
+    <!-- #### Register Script End #### -->
+
+
+
+
+    <!-- #### Log In Script Start #### -->
+    <script>
+
+
+        function showError(message) {
+
+            $("#error").remove();
+
+            $('#errormsg-container').append("<label id='error'>" + message + "</label>");
+
+        }
+
+
+
+
+        // myform.addEventListener('submit', function (event) {
+
+        //     event.preventDefault();
+
+        //     sendData();
+
+        // });
+
+
+
+
+        async function loginAccount() {
+
+
+            var username = document.getElementById("login_username").value;
+
+            var password = document.getElementById("login_password").value;
+
+
+            var serviceURL = "http://127.0.0.1:5001/account/authenticate/" + username
+
+
+
+            try {
+
+                const response =
+
+                    await fetch(
+
+                        serviceURL, {
+
+                        method: 'POST',
+
+                        headers: { "Content-Type": "application/json" },
+
+                        body: JSON.stringify({ password: password })
+
+
+                    }
+
+                    );
+
+
+
+                const data = await response.json();
+
+                var customer = data;
+
+                location.reload();
+                alert("Logged in!");
+                $('#loginModal').modal('hide');
+                sessionStorage.setItem("loggedin_user", username);
+
+
+            } catch (error) {
+
+                showError('There is a problem retrieving customer data, please try again later.<br />' + error);
+
+            }
+            location.reload();
+            $('#loginModal').modal('hide');
+            sessionStorage.setItem("loggedin_user", username);
+
+
+
+
+
+
+
+
+
+        }
+
+    </script>
+    <!-- #### Log In Script End #### -->
+
+    <script>
+        // alert(loggedin_user);
+        loggedin_user = sessionStorage.getItem("loggedin_user");
+
+        if (loggedin_user != null) {
+
+            var loginbtn = document.getElementById('login_btn');
+            loginbtn.style.display = "none";
+
+            var registerbtn = document.getElementById('register_btn');
+            registerbtn.style.display = "none";
+
+        } else {
+            // alert(loggedin_user);
+
+
+            var profilepicture = document.getElementById('profile_picture');
+            profilepicture.style.display = "none";
+
+            var logoutbtn = document.getElementById('logout_btn');
+            logoutbtn.style.display = "none";
+        }
+
+        function logout() {
+            alert("You have been logged out!");
+            sessionStorage.removeItem('loggedin_user');
+            location.reload();
+        }
+    </script>
+
+
 </body>
 
 </html>

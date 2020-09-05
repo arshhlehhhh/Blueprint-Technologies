@@ -1,0 +1,99 @@
+<script>
+
+
+    function showError(message) {
+ 
+     $("#error").remove();
+ 
+     $('#errormsg-container').append("<label id='error'>"+message+"</label>");
+ 
+    }
+ 
+ 
+ 
+ 
+    myform.addEventListener('submit',function (event) {
+ 
+     event.preventDefault();
+ 
+     sendData();
+ 
+    });
+ 
+ 
+ 
+ 
+    async function sendData() {
+ 
+     var email = document.getElementById("username").value;
+ 
+     var password = document.getElementById("password").value;
+ 
+     var serviceURL = "http://54.255.225.125:5000/customer/" + email
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+     try {
+ 
+      const response =
+ 
+      await fetch(
+ 
+       serviceURL, {
+ 
+        method: 'GET',
+ 
+        headers: { "Content-Type": "application/json"}
+ 
+       }
+ 
+      );
+ 
+      
+ 
+      const data = await response.json();
+ 
+      var customer = data;
+ 
+ 
+ 
+ 
+      if (customer.email) {
+ 
+       if (password == customer.password) {
+ 
+        localStorage.id = customer.customerid;
+ 
+        localStorage.email = customer.email;
+ 
+        window.location.replace('/bababook.html')
+ 
+       }
+ 
+       else {
+ 
+        showError('Incorrect Password');
+ 
+       }
+ 
+      }
+ 
+      else {
+ 
+       showError('Invalid Email');
+ 
+      }
+ 
+     } catch (error) {
+ 
+      showError('There is a problem retrieving customer data, please try again later.<br />'+error);
+ 
+     } 
+ 
+    }
+ 
+   </script>

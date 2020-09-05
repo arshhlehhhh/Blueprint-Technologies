@@ -20,6 +20,66 @@
 </head>
 
 <body>
+
+    <!--#### Register Modal Start ####-->
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Register Account</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <input class="form-control" id="register_name" type="text" placeholder="Name"><br>
+                <input class="form-control" id="register_username" type="text" placeholder="Username"><br>
+                <input class="form-control" id="register_password" type="password" placeholder="Password"><br>
+                <input class="form-control" id="register_confirm_password" type="password" placeholder="Confirm Password">
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" onclick="registerAccount()">Register</button>
+            </div>
+            </div>
+            </div>
+        </div>
+    </div>
+<!--#### Register Modal End ####-->
+
+<!--#### Log In Modal Start ####-->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Register Account</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+            <input class="form-control" id="login_username" type="text" placeholder="Username"><br>
+            <input class="form-control" id="login_password" type="password" placeholder="Password"><br>
+        </div>
+
+        <script>
+            loggedin_user = sessionStorage.getItem("loggedin_user");
+            // alert(loggedin_user);
+        </script>
+
+        <div class="modal-footer">
+        
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="loginAccount()">Log In</button>
+
+        
+        </div>
+        </div>
+        </div>
+    </div>
+</div>
+<!--#### Log In Modal End ####-->
+
     <!-- Preloader -->
     <div class="preloader d-flex align-items-center justify-content-center">
         <div class="lds-ellipsis">
@@ -101,7 +161,12 @@
 
                         <!-- Contact -->
                         <div class="contact">
-                            <a href="#"><img src="img/core-img/call2.png" alt=""> +800 49 900 900</a>
+                            <button id="login_btn" type="button" style="margin-top:15%;" class="btn btn-info" data-toggle="modal" data-target="#loginModal">Log In</button>
+                            <button id="register_btn" type="button" style="margin-top:15%;" class="btn btn-primary" data-toggle="modal" data-target="#registerModal">Register</button>
+                            
+    
+                            <button id="logout_btn" type="button" style="margin-top:4%;" class="btn btn-danger" onclick="logout()">Logout</button>
+                            <img id="profile_picture" src="img/core-img/profile_icon.png" style="width:7%;margin-top:4%;border-radius:50%;;" alt="Avatar">
                         </div>
                     </nav>
                 </div>
@@ -610,6 +675,232 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
+
+    <!-- #### Register Script Start #### -->
+    <script>
+
+
+        function showError(message) {
+     
+         $("#error").remove();
+     
+         $('#errormsg-container').append("<label id='error'>"+message+"</label>");
+     
+        }
+     
+     
+     
+     
+        myform.addEventListener('submit',function (event) {
+     
+         event.preventDefault();
+     
+         sendData();
+     
+        });
+     
+     
+        
+     
+        async function registerAccount() {
+        
+        
+         var username = document.getElementById("register_username").value;
+     
+         var password = document.getElementById("register_password").value;
+
+         var confirm_password = document.getElementById("register_confirm_password").value;
+
+         var name = document.getElementById("register_name").value;
+     
+         var serviceURL = "http://127.0.0.1:5001/account/" + username
+     
+     
+         if (password == confirm_password) {
+    
+            // localStorage.email = customer.email;
+            try {
+     
+     const response =
+
+     await fetch(
+
+      serviceURL, {
+
+       method: 'POST',
+
+       headers: { "Content-Type": "application/json"},
+
+       body: JSON.stringify({password:password, name:name})
+
+      }
+
+     );
+
+     
+
+     const data = await response.json();
+
+     var customer = data;
+     location.reload();
+     alert("Account Registered!");
+     $('#registerModal').modal('hide');
+     
+
+
+
+     
+    } catch (error) {
+
+     showError('There is a problem retrieving customer data, please try again later.<br />'+error);
+
+    } 
+    
+
+            }
+
+        else {
+
+            showError('Passwords do not match!');
+
+        }
+        // window.location.replace('/index.html')
+    location.reload();
+    $('#registerModal').modal('hide');
+    
+     
+     
+     
+         
+     
+        }
+     
+       </script>
+    <!-- #### Register Script End #### -->
+
+
+
+
+    <!-- #### Log In Script Start #### -->
+    <script>
+
+
+        function showError(message) {
+     
+         $("#error").remove();
+     
+         $('#errormsg-container').append("<label id='error'>"+message+"</label>");
+     
+        }
+     
+     
+     
+     
+        myform.addEventListener('submit',function (event) {
+     
+         event.preventDefault();
+     
+         sendData();
+     
+        });
+     
+     
+        
+     
+        async function loginAccount() {
+        
+    
+         var username = document.getElementById("login_username").value;
+     
+         var password = document.getElementById("login_password").value;
+
+     
+         var serviceURL = "http://127.0.0.1:5001/account/authenticate/" + username
+     
+     
+        
+        try {
+     
+        const response =
+
+        await fetch(
+
+        serviceURL, {
+
+        method: 'POST',
+
+        headers: { "Content-Type": "application/json"},
+
+        body: JSON.stringify({password:password})
+        
+
+      } 
+
+     );
+
+     
+
+    const data = await response.json();
+
+    var customer = data;
+
+    location.reload();
+    alert("Logged in!");
+    $('#loginModal').modal('hide');
+    sessionStorage.setItem("loggedin_user", username);  
+
+     
+    } catch (error) {
+
+     showError('There is a problem retrieving customer data, please try again later.<br />'+error);
+
+    } 
+    location.reload();
+    $('#loginModal').modal('hide');
+    sessionStorage.setItem("loggedin_user", username);
+    
+
+
+     
+     
+     
+     
+         
+     
+        }
+     
+       </script>
+    <!-- #### Log In Script End #### -->
+
+    <script>
+        // alert(loggedin_user);
+        loggedin_user = sessionStorage.getItem("loggedin_user");
+        
+        if(loggedin_user != null){
+
+            var loginbtn = document.getElementById('login_btn');
+            loginbtn.style.display = "none";
+
+            var registerbtn = document.getElementById('register_btn');
+            registerbtn.style.display = "none";
+
+        }else{
+            // alert(loggedin_user);
+
+
+            var profilepicture = document.getElementById('profile_picture');
+            profilepicture.style.display = "none";
+
+            var logoutbtn = document.getElementById('logout_btn');
+            logoutbtn.style.display = "none";
+        }
+
+        function logout() {
+            alert("You have been logged out!");
+            sessionStorage.removeItem('loggedin_user');
+            location.reload();
+        }
+    </script>
 </body>
 
 </html>
