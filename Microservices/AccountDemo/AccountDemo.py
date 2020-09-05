@@ -23,7 +23,7 @@ class AccountDemo(db.Model):
     __tablename__ = 'Account_Demo'
 
     user_id = db.Column(db.String(255), primary_key = True)
-    scenerio_id = db.Column(db.String(255), nullable = False)
+    scenerio_id = db.Column(db.Integer(), nullable = False)
     balance = db.Column(db.Numeric(), nullable = False)
     holding = db.Column(db.String(4294000000), nullable = False)
 
@@ -75,6 +75,7 @@ def create_savepoint(user_id):
             return jsonify({"message": "An error occurred while making a new save point."}), 500
         
         return jsonify({"message": "A new save point has been created for {}.".format(user_id)}), 201
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5002, debug=True)

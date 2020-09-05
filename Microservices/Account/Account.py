@@ -50,7 +50,6 @@ def create_user(user_id):
 
     data = request.get_json()
     password = sha256_crypt.encrypt(data["password"])
-    print(password)
     account = Account(user_id, password, data["name"])
     
     try:
@@ -67,7 +66,6 @@ def authenticate(user_id):
         data = request.get_json()
         password = data['password']
         dbAccount = [account.json() for account in Account.query.filter_by(user_id=user_id)]
-        print("Authenticate --", dbAccount)
         if (sha256_crypt.verify(password, dbAccount[0]['password'])):
             return jsonify({"message": "Successfully authenticated {}".format(user_id)}), 201
         return jsonify({"message": "Authenticated failed."}), 400

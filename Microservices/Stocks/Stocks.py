@@ -6,6 +6,7 @@ from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from sqlalchemy.exc import StatementError
+from datetime import datetime
 
 
 app = Flask(__name__)
@@ -22,7 +23,7 @@ class Stocks(db.Model):
 
     __tablename__ = 'Stocks'
 
-    date = db.Column(db.DateTime(), primary_key = True)
+    date = db.Column(db.String(255), primary_key = True)
     ticker = db.Column(db.String(255), primary_key = True)
     name = db.Column(db.String(255), nullable = False)
     price = db.Column(db.Numeric(), nullable = False)
@@ -46,10 +47,12 @@ def get_all():
 def get_by_category(category):
     return jsonify( { "Stocks": [stocks.json() for stocks in Stocks.query.filter_by(category=category)] })
 
-@app.route("/stocks/retrieveByDate/")
-def get_by_date():
-    data = request.get_json()
-    return jsonify( { "Start Date": data['startDate'], "End Date": data['endDate'] } )
+@app.route("/stocks/retrieveByDate/<string:date>")
+def get_by_date(date):
+    try:
+        return jsonify( { "Stocks": [stocks.json() for stocks in Stocks.query.filter_by(date = date)] } )
+    except:
+        return jsonify( {"message": "There are no sales on this day."} )
     
     # return jsonify( { "Stocks": [stocks.json() for stocks in Stocks.query.filter_by(date <= data['endDate'], date >= data['startDate'])] })
 
