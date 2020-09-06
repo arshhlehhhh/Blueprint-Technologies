@@ -282,6 +282,7 @@
                         totalStockMetrics = null;
                         string = null;
                         temp = [];
+                        metrics = ["ebitda", "peRatio", "priceToSalesRatio", "enterpriseValueOverEBITDA", "interestCoverage", "threeYRevenueGrowthPerShare", "threeYOperatingCFGrowthPerShare", "threeYNetIncomeGrowthPerShare"];
                         counter =0;
 
                         function showTech() {
@@ -453,107 +454,179 @@
                             </tr>
 
                             <script>
+                                // #### Final Value START ####
+                                // function showMetrics(secondary){
+                                //     alert(document.getElementById(secondary).checked)
+                                //     if(document.getElementById(secondary).checked){
+                                //         // alert(secondary.slice(0,-1))
+                                //         num = secondary.slice(0,-1)
+                                //         secondaryStocks.push(num);
+
+                                //         // alert(document.getElementById(secondary).checked);
+                                //     }else{
+                                //         index = secondaryStocks.indexOf(secondary.slice(0,-1));
+                                //         secondaryStocks.splice(index, 1);
+                                //     }
+                                //     alert(JSON.stringify(secondaryStocks));
+                                //     for(i=0; i<metrics.length;i++){
+                                //         length
+                                //     }
+                                //     var jsonData = $.get("http://107.21.167.79:5004/stocks/retrieveTickerStatistics/"+primaryStock, function (dataJSON) {
+
+                                //     });
+
+
+                                // }
+
+                                // #### Final Value END ####
+
                                 function showMetrics(secondary){
                                     // alert(document.getElementById(secondary).checked)
                                     if(document.getElementById(secondary).checked){
                                         // alert(secondary.slice(0,-1))
-                                        secondaryStocks.push(secondary.slice(0,-1));
+                                        num = secondary.slice(0,-1)
+                                        secondaryStocks.push(num);
+
                                         // alert(document.getElementById(secondary).checked);
                                     }else{
                                         index = secondaryStocks.indexOf(secondary.slice(0,-1));
                                         secondaryStocks.splice(index, 1);
                                     }
-                                    console.log(secondaryStocks);
-
-                                    metrics = ["ebitda", "peRatio", "priceToSalesRatio", "enterpriseValueOverEBITDA", "interestCoverage", "threeYRevenueGrowthPerShare", "threeYOperatingCFGrowthPerShare", "threeYNetIncomeGrowthPerShare"];
-                                    // alert(primaryStock);
+                                    // alert(JSON.stringify(secondaryStocks));
+                                    metrics = ["ebitda", "peRatio", "priceToSalesRatio", "enterpriseValueOverEBITDA"];
+                                    metricsName = ["EBITDA", "PE Ratio", "Price To Sales Ratio", "Enterprise Value Over EBITDA", "Interst Coverage", "Three Year Revenue Growth per Share", "Three Year Operating Growth Per Share", "Three Year Income Growth Per Share"];
+                                    values = ["29.3", "55", "20", "52"];
+                                    minValues = ["-15.5", "18", "4.7", "-23"];
+                                    maxValues = ["36.2", "97", "20", "40"];
+                                    lagging = ["Workday Inc", "Oracle Corporation", "Oracle Corporation", "Workday Inc"];
+                                    leading = ["Oracle Corporation", "Workday Inc", "Adobe Inc", "Intuit Inc."];
                                     string = "<tr><th scope='col'>Metric</th><th scope='col'>Value</th><th scope='col'>Min</th><th scope='col'>Max</th><th scope='col'>Lagging Peer</th><th scope='col'>Leading Peer</th></tr>";
+                                    for(i=0; i<metrics.length;i++){
+                                        string += "<tr><td>";
+                                        string += metricsName[i];
+                                        string += "</td><td>";
+                                        string += values[i];
+                                        string += "</td><td>";
+                                        string += minValues[i];
+                                        string += "</td><td>";
+                                        string += maxValues[i];
+                                        string += "</td><td>";
+                                        string += lagging[i];
+                                        string += "</td><td>";
+                                        string += leading[i];
+                                        string += "</td></tr>";
+                                        
+                                        
+                                    }
                                     
-                                    var jsonData = $.get("http://107.21.167.79:5004/stocks/retrieveTickerStatistics/"+primaryStock, function (dataJSON) {
-                                        // primaryStockMetrics = dataJSON;
-                                        console.log(dataJSON);
-                                        metrics = ["ebitda", "peRatio", "priceToSalesRatio", "enterpriseValueOverEBITDA", "interestCoverage", "threeYRevenueGrowthPerShare", "threeYOperatingCFGrowthPerShare", "threeYNetIncomeGrowthPerShare"];
-                                        // alert(metrics.length);
-                                        for(z=0;z<metrics.length;z++){
-            
-                                            string += "<tr>";
-                                            string += "<td>";
-                                            string += metrics[z];
-                                            string += "</td>";
 
-                                            string += "<td>";
-                                            string += dataJSON[metrics[z]];
-                                            string += "</td>"
-                                            // string += "</tr>";
-                                            // alert(JSON.stringify(totalStockMetrics));
-                                            
-                                            temp =[];
-                                            for(x=0;x<secondaryStocks.length;x++){
-                                                // alert(x);   
-                                                counter = z;
-                                                // alert(counter);
-                                                // alert(secondaryStocks[x]);
-                                                var jsonData = $.get("http://107.21.167.79:5004/stocks/retrieveTickerStatistics/"+secondaryStocks[x], function (datas) {
-                                                    metrics = ["ebitda", "peRatio", "priceToSalesRatio", "enterpriseValueOverEBITDA", "interestCoverage", "threeYRevenueGrowthPerShare", "threeYOperatingCFGrowthPerShare", "threeYNetIncomeGrowthPerShare"];
-                                                    // alert(counter);
-                                                    // alert(JSON.stringify(dataJSON));
-
-                                                    // alert(JSON.stringify(dataJSON[metrics[counter]]));
-                                                    if(temp.length >1){
-                                                        // const str = "['6.35', '2.72', '11.79', '183.25']",
-                                                        // array = temp.match(/\d+(?:\.\d+)?/g).map(Number);
-                                                        // alert();
-                                                        minValue = Math.min(temp);
-                                                        maxValue = Math.max(temp);
-                                                        alert(JSON.stringify(temp[-1]));    
-                                                        string += "<td>";
-                                                        string += temp[-1];
-                                                        string += "</td>";
-                                                        string += "<td>";
-                                                        string += maxValue;
-                                                        string += "</td>";
-                                                        string += "</tr>";
-                                                        secondaryStockMetrics.push(temp);
-                                                        totalStockMetrics = secondaryStockMetrics;
-                                                        temp = [];
-                                                        
-                                                        
-                                                        // alert(JSON.stringify(secondaryStockMetrics));
-                                                        temp.push(datas[metrics[counter]]);
-                                                    }else{
-                                                        temp.push(datas[metrics[counter]]);
-                                                    }
-                                                    
-                                                    // alert(JSON.stringify(temp));
-
-                                                    
-                                                });
-                                            }
-                                            // alert(JSON.stringify(totalStockMetrics));
-                                            // alert(JSON.stringify(temp));
-                                            // secondaryStockMetrics.push(temp);
-                                            temp =[];
-
-                                            
-                                            
-
-
-
-                                        };
-                                        // alert(JSON.stringify(secondaryStockMetrics));
-                                        // alert(JSON.stringify(secondaryStocksMetrics));
-
-
-                                        $('#metricsTable').html($.parseHTML(string));
-                                        // console.log(secondaryStockMetrics);
-                                        
-                                        
-                                        // console.log(primaryStockMetrics);
-                                    });
-                                    // console.log(primaryStockMetrics);
-
-                                    // alert(JSON.stringify(secondaryStockMetrics));
+                                    $('#metricsTable').html($.parseHTML(string));
                                 }
+
+
+                                // function showMetrics(secondary){
+                                //     // alert(document.getElementById(secondary).checked)
+                                //     if(document.getElementById(secondary).checked){
+                                //         // alert(secondary.slice(0,-1))
+                                //         num = secondary.slice(0,-1)
+                                //         secondaryStocks.push(num);
+                                //         // alert(document.getElementById(secondary).checked);
+                                //     }else{
+                                //         index = secondaryStocks.indexOf(secondary.slice(0,-1));
+                                //         secondaryStocks.splice(index, 1);
+                                //     }
+                                //     console.log(secondaryStocks);
+
+                                //     metrics = ["ebitda", "peRatio", "priceToSalesRatio", "enterpriseValueOverEBITDA", "interestCoverage", "threeYRevenueGrowthPerShare", "threeYOperatingCFGrowthPerShare", "threeYNetIncomeGrowthPerShare"];
+                                //     // alert(primaryStock);
+                                //     string = "<tr><th scope='col'>Metric</th><th scope='col'>Value</th><th scope='col'>Min</th><th scope='col'>Max</th><th scope='col'>Lagging Peer</th><th scope='col'>Leading Peer</th></tr>";
+                                    
+                                //     var jsonData = $.get("http://107.21.167.79:5004/stocks/retrieveTickerStatistics/"+primaryStock, function (dataJSON) {
+                                //         // primaryStockMetrics = dataJSON;
+                                //         console.log(dataJSON);
+                                //         metrics = ["ebitda", "peRatio", "priceToSalesRatio", "enterpriseValueOverEBITDA", "interestCoverage", "threeYRevenueGrowthPerShare", "threeYOperatingCFGrowthPerShare", "threeYNetIncomeGrowthPerShare"];
+                                //         // alert(metrics.length);
+                                //         for(z=0;z<metrics.length;z++){
+            
+                                //             string += "<tr>";
+                                //             string += "<td>";
+                                //             string += metrics[z];
+                                //             string += "</td>";
+
+                                //             string += "<td>";
+                                //             string += dataJSON[metrics[z]];
+                                //             string += "</td>"
+                                //             // string += "</tr>";
+                                //             // alert(JSON.stringify(totalStockMetrics));
+                                            
+                                //             temp =[];
+                                //             for(x=0;x<secondaryStocks.length;x++){
+                                //                 // alert(x);   
+                                //                 counter = z;
+                                //                 // alert(counter);
+                                //                 // alert(secondaryStocks[x]);
+                                //                 var jsonData = $.get("http://107.21.167.79:5004/stocks/retrieveTickerStatistics/"+secondaryStocks[x], function (datas) {
+                                //                     metrics = ["ebitda", "peRatio", "priceToSalesRatio", "enterpriseValueOverEBITDA", "interestCoverage", "threeYRevenueGrowthPerShare", "threeYOperatingCFGrowthPerShare", "threeYNetIncomeGrowthPerShare"];
+                                //                     minArray = 
+                                //                     // alert(counter);
+                                //                     // alert(JSON.stringify(dataJSON));
+
+                                //                     // alert(JSON.stringify(dataJSON[metrics[counter]]));
+                                //                     if(temp.length >1){
+                                //                         // const str = "['6.35', '2.72', '11.79', '183.25']",
+                                //                         // array = temp.match(/\d+(?:\.\d+)?/g).map(Number);
+                                //                         // alert();
+                                //                         minValue = Math.min(temp);
+                                //                         maxValue = Math.max(temp);
+                                //                         alert(JSON.stringify(temp[-1]));    
+                                //                         string += "<td>";
+                                //                         string += temp[-1];
+                                //                         string += "</td>";
+                                //                         string += "<td>";
+                                //                         string += maxValue;
+                                //                         string += "</td>";
+                                //                         string += "</tr>";
+                                //                         secondaryStockMetrics.push(temp);
+                                //                         totalStockMetrics = secondaryStockMetrics;
+                                //                         temp = [];
+                                                        
+                                                        
+                                //                         // alert(JSON.stringify(secondaryStockMetrics));
+                                //                         temp.push(datas[metrics[counter]]);
+                                //                     }else{
+                                //                         temp.push(datas[metrics[counter]]);
+                                //                     }
+                                                    
+                                //                     // alert(JSON.stringify(temp));
+
+                                                    
+                                //                 });
+                                //             }
+                                //             // alert(JSON.stringify(totalStockMetrics));
+                                //             // alert(JSON.stringify(temp));
+                                //             // secondaryStockMetrics.push(temp);
+                                //             temp =[];
+
+                                            
+                                            
+
+
+
+                                //         };
+                                //         // alert(JSON.stringify(secondaryStockMetrics));
+                                //         // alert(JSON.stringify(secondaryStocksMetrics));
+
+
+                                //         $('#metricsTable').html($.parseHTML(string));
+                                //         // console.log(secondaryStockMetrics);
+                                        
+                                        
+                                //         // console.log(primaryStockMetrics);
+                                //     });
+                                //     // console.log(primaryStockMetrics);
+
+                                //     // alert(JSON.stringify(secondaryStockMetrics));
+                                // }
                                 
 
                             </script>
