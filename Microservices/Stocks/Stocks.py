@@ -87,7 +87,47 @@ def get_quarter_result(ticker, date):
 
 @app.route("/stocks/retrieveTickerStatistics/<string:ticker>")
 def get_ticker_stats(ticker):
-    return "Hello"
+    key = "5bb3877196dfdde3adf163bd15ea59ee"
+    finalJSON = {}
+    
+    try: 
+        serviceURL = "https://financialmodelingprep.com/api/v3/income-statement/" + ticker + "?" + "apikey=" + key
+        print("Calling: " + serviceURL)
+        response = requests.get(serviceURL)
+        
+        jsonPayLoad = response.json()[0]
+        print("Received")
+
+        finalJSON["ebitda"] = jsonPayLoad["ebitda"]
+        
+        serviceURL = "https://financialmodelingprep.com/api/v3/key-metrics/" + ticker + "?" + "apikey=" + key
+        print("Calling: " + serviceURL)
+        response = requests.get(serviceURL)
+        
+        jsonPayLoad = response.json()[0]
+        print("Received")
+
+        finalJSON["peRatio"] = jsonPayLoad["peRatio"]
+        finalJSON["priceToSalesRatio"] = jsonPayLoad["priceToSalesRatio"]
+        finalJSON["enterpriseValueOverEBITDA"] = jsonPayLoad["enterpriseValueOverEBITDA"]
+        finalJSON["interestCoverage"] = jsonPayLoad["interestCoverage"]
+
+        serviceURL = "https://financialmodelingprep.com/api/v3/financial-growth/" + ticker + "?" + "apikey=" + key
+        print("Calling: " + serviceURL)
+        response = requests.get(serviceURL)
+        
+        jsonPayLoad = response.json()[0]
+        print("Received")
+
+        finalJSON["threeYRevenueGrowthPerShare"] = jsonPayLoad["threeYRevenueGrowthPerShare"]
+        finalJSON["threeYOperatingCFGrowthPerShare"] = jsonPayLoad["threeYOperatingCFGrowthPerShare"]
+        finalJSON["threeYNetIncomeGrowthPerShare"] = jsonPayLoad["threeYNetIncomeGrowthPerShare"]
+        finalJSON["threeYShareholdersEquityGrowthPerShare"] = jsonPayLoad["threeYShareholdersEquityGrowthPerShare"]
+        finalJSON["threeYDividendperShareGrowthPerShare"] = jsonPayLoad["threeYDividendperShareGrowthPerShare"]
+
+        return jsonify(finalJSON)
+    except:
+        return jsonify( {"message": "There is an issue pulling {}'s information.".format(ticker)} )
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5004, debug=True)
