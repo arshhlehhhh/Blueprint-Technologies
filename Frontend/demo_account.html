@@ -496,28 +496,32 @@
                 }
             }
             var oldHoldings = globalHoldings
+            currBalance = globalBalance
             Object.keys(oldHoldings).forEach(function (key) {
                 if (key in buyList) {
                     oldHoldings[key] += buyList[key]
+                    currBalance -= globalTickerPrice[key] * buyList[key]
                 } else if (key in sellList) {
                     oldHoldings[key] -= sellList[key]
+                    currBalance += globalTickerPrice[key] * sellList[key]
                 }
             });
             Object.keys(buyList).forEach(function (key) {
                 if (!(key in oldHoldings)) {
                     oldHoldings[key] = buyList[key]
+                    currBalance -= globalTickerPrice[key] * buyList[key]
                 }
             });
-            currBalance = globalBalance
+            
             var holdingString = ""
             Object.keys(oldHoldings).forEach(function (key) {
                 if (key in globalTickerPrice) {
                     holdingString += key + ":" + oldHoldings[key] + ";"
-                    if (oldHoldings[key] > 0) {
-                        currBalance -= oldHoldings[key] * globalTickerPrice[key]
-                    } else {
-                        currBalance += oldHoldings[key] * globalTickerPrice[key]
-                    }
+                    // if (oldHoldings[key] > 0) {
+                    //     currBalance -= oldHoldings[key] * globalTickerPrice[key]
+                    // } else {
+                    //     currBalance += oldHoldings[key] * globalTickerPrice[key]
+                    // }
                 }
             });
             holdingString = holdingString.slice(0, -1)
@@ -543,9 +547,11 @@
                 dataType: "json",
                 success: function (response) {
                     alert("done");
+                    location.reload(); 
                 },
                 error: function (xhr, status) {
                     alert("error");
+                    location.reload(); 
                 }
             });
             return false
