@@ -1,0 +1,96 @@
+{
+  "demoUser": {
+    "user_id": "trevordino0", 
+    "scenerio_id": 1, 
+    "balance": 1000000.0, 
+    "holding": ""
+  }, 
+  "demoDetails": {
+    "scenerio_id": 1, 
+    "message": "It is New Year and you have just started your investing journey on 2nd Jan 2020! You have USD$100,000 to start your investing journey and learn how to adapt to different market conditions and news. You have a a choice of selecting stocks across 4 industries to begin your portfolio! What would stocks would you like to select?  ", 
+    "startDate": "2-Jan-20", 
+    "endDate": "2-Jan-20"
+  }, 
+  "stocks": {
+    "Tech": [
+      {
+        "date": "2-Jan-20", 
+        "ticker": "CRM", 
+        "name": "Salesforce.com, inc.", 
+        "price": 166.99
+      }, 
+      {
+        "date": "2-Jan-20", 
+        "ticker": "INTU", 
+        "name": "Intuit Inc.", 
+        "price": 266.16
+      }, 
+      {
+        "date": "2-Jan-20", 
+        "ticker": "ORCL", 
+        "name": "Oracle Corporation", 
+        "price": 53.95
+      }
+    ], 
+    "Financials": [
+      {
+        "date": "2-Jan-20", 
+        "ticker": "GS", 
+        "name": "Goldman Sachs Group Inc", 
+        "price": 234.32
+      }, 
+      {
+        "date": "2-Jan-20", 
+        "ticker": "JPM", 
+        "name": "JPMorgan Chase & Co.", 
+        "price": 141.09
+      }, 
+      {
+        "date": "2-Jan-20", 
+        "ticker": "MS", 
+        "name": "Morgan Stanley", 
+        "price": 52.04
+      }
+    ], 
+    "Healthcare": [
+      {
+        "date": "2-Jan-20", 
+        "ticker": "JNJ", 
+        "name": "Johnson & Johnson", 
+        "price": 145.97
+      }, 
+      {
+        "date": "2-Jan-20", 
+        "ticker": "MRK", 
+        "name": "Merck & Co., Inc.", 
+        "price": 92.04
+      }, 
+      {
+        "date": "2-Jan-20", 
+        "ticker": "PFE", 
+        "name": "Pfizer Inc.", 
+        "price": 39.14
+      }
+    ], 
+    "FMCG": [
+      {
+        "date": "2-Jan-20", 
+        "ticker": "KO", 
+        "name": "Coca Cola", 
+        "price": 54.99
+      }, 
+      {
+        "date": "2-Jan-20", 
+        "ticker": "PEP", 
+        "name": "PepsiCo, Inc.", 
+        "price": 135.82
+      }, 
+      {
+        "date": "2-Jan-20", 
+        "ticker": "PG", 
+        "name": "Procter & Gamble Co", 
+        "price": 123.41
+      }
+    ]
+  }
+}

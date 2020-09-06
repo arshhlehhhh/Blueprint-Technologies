@@ -23,10 +23,10 @@ class DemoGame(db.Model):
 
     __tablename__ = 'Demo_Game'
 
-    scenerio_id = db.Column(db.String(255), primary_key = True)
+    scenerio_id = db.Column(db.Integer(), primary_key = True)
     message = db.Column(db.String(4294000000), nullable = False)
-    startDate = db.Column(db.DateTime(), nullable = False)
-    endDate = db.Column(db.DateTime(), nullable = False)
+    startDate = db.Column(db.String(255), nullable = False)
+    endDate = db.Column(db.String(255), nullable = False)
 
     def __init__(self, scenerio_id, message, startDate, endDate):
         self.scenerio_id = scenerio_id
@@ -41,7 +41,7 @@ class DemoGame(db.Model):
 def get_all():
     return jsonify({"DemoGame": [DemoGame.json() for DemoGame in DemoGame.query.all()]})
 
-@app.route("/DemoGame/GetScenerioWithPrice/<string:scenerio_id>")
+@app.route("/DemoGame/GetScenerioWithPrice/<int:scenerio_id>")
 def get_scenerio_w_price(scenerio_id):
     
     #Retrieve stock prices (call stocks api end point and provide start and end date of scenerio)
@@ -51,24 +51,60 @@ def get_scenerio_w_price(scenerio_id):
 
     if (DemoGame.query.filter_by(scenerio_id=scenerio_id).first()):
         
-        # demoGame = DemoGame.query.filter_by(scenerio_id=scenerio_id).first()
-        # startDate = demoGame['startDate']
-        # endDate = demoGame['endDate']
-        # message = demoGame['message']
+        demoGame = [DemoGame.json() for DemoGame in DemoGame.query.filter_by(scenerio_id=scenerio_id)]
 
-        startDate = "08-08-2020"
-        endDate = "10-08-2020"
-        message = "Tester"
+        startDate = demoGame[0]['startDate']
+        endDate = demoGame[0]['endDate']
+        message = demoGame[0]['message']
+
         
-        serviceUrl = "http://0.0.0.0:5004/stocks/retrieveByDate/"
-        data = jsonify( { "startDate": startDate, "endDate": endDate } )
+        serviceUrl = "http://0.0.0.0:5004/stocks/retrieveByDate/" +startDate
 
-        response = requests.post(url=serviceUrl, json=data)
-
-        #Sort JSON into categories and according to dates
-        return response.json()
+        response = requests.get(serviceUrl)
+        output = jsonify( { "scenario_details": demoGame[0], "stocks": response.json()["Stocks"]} )
+        return output
 
     return jsonify({"message": "Scenerio ID is invalid."}), 500
 
+@app.route("/DemoGame/startDemo/<string:user_id>")
+def start_demo(user_id):
+
+    # Check user id if scenerio exists
+    print("User ID = " + user_id)
+    serviceURL = "http://0.0.0.0:5002/accountdemo/get_user_scenerio/" + user_id
+
+    response = requests.get(serviceURL).json()
+    currentScenerio = 1
+    accountDemo = [{ "user_id": user_id, "scenerio_id": 1, "balance": 1000000.0, "holding": "" }]
+
+    if (response['AccountDemo'] != []):
+        accountDemo = response['AccountDemo']
+        currentScenerio = accountDemo[0]['scenerio_id'] + 1
+    
+    output = (get_scenerio_w_price(currentScenerio)).json
+
+    #process the stocks
+    stocks = sort_stocks_to_categories(output["stocks"])
+
+    #concate the output with accountDemo and send back
+
+    return jsonify( { "demoUser": accountDemo[0], "demoDetails": output["scenario_details"], "stocks": stocks} ), 200
+
+def sort_stocks_to_categories(response):
+
+    categories = {}
+
+    for i in response:
+        if i["category"] in categories.keys():
+            categories[i["category"]].append({"date": i["date"], "ticker": i["ticker"], "name": i["name"], "price": i["price"]})
+        else:
+            categories[i["category"]] = [{"date": i["date"], "ticker": i["ticker"], "name": i["name"], "price": i["price"]}]
+    return categories
+
+@app.route("/DemoGame/testDemo")
+def testDemo():
+
+    return 201
+    
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5002, debug=True)
+    app.run(host='0.0.0.0', port=5003, debug=True)
