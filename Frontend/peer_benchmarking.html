@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>Credit - Loan &amp; Credit Company HTML Template</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <!--#### Register Modal Start ####-->
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Register Account</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input class="form-control" id="register_name" type="text" placeholder="Name"><br>
+                    <input class="form-control" id="register_username" type="text" placeholder="Username"><br>
+                    <input class="form-control" id="register_password" type="password" placeholder="Password"><br>
+                    <input class="form-control" id="register_confirm_password" type="password"
+                        placeholder="Confirm Password">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="registerAccount()">Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!--#### Register Modal End ####-->
+
+    <!--#### Log In Modal Start ####-->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Register Account</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input class="form-control" id="login_username" type="text" placeholder="Username"><br>
+                    <input class="form-control" id="login_password" type="password" placeholder="Password"><br>
+                </div>
+
+                <script>
+                    loggedin_user = sessionStorage.getItem("loggedin_user");
+            // alert(loggedin_user);
+                </script>
+
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="loginAccount()">Log In</button>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!--#### Log In Modal End ####-->
+
+    <!-- Preloader -->
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="lds-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+        <!-- Top Header Area -->
+        <div class="top-header-area">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12 d-flex justify-content-between">
+                        <!-- Logo Area -->
+                        <div class="logo">
+                            <a href="index.html"><img src="img/core-img/logo.png" alt="" style="height:17%;"></a>
+                        </div>
+
+                        <!-- Top Contact Info -->
+                        <div class="top-contact-info d-flex align-items-center">
+                            <a href="#" data-toggle="tooltip" data-placement="bottom"
+                                title="25 th Street Avenue, Los Angeles, CA"><img src="img/core-img/placeholder.png"
+                                    alt=""> <span>25 th Street Avenue, Los Angeles, CA</span></a>
+                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="office@yourfirm.com"><img
+                                    src="img/core-img/message.png" alt=""> <span>office@yourfirm.com</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navbar Area -->
+        <div class="credit-main-menu" id="sticker">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="creditNav">
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- Close Button -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="decipher_news.html">Decipher News</a></li>
+
+                                    <li><a href="demo_account.html">Demo Account</a></li>
+                                    <li><a href="peer_benchmarking.html">Peer Benchmarking</a></li>
+                                    <li><a href="glossary.html">Glossary</a></li>
+                                    
+                                </ul>
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+
+                        <!-- Contact -->
+                        <div class="contact">
+                            <button id="login_btn" type="button" style="margin-top:15%;" class="btn btn-info"
+                                data-toggle="modal" data-target="#loginModal">Log In</button>
+                            <button id="register_btn" type="button" style="margin-top:15%;" class="btn btn-primary"
+                                data-toggle="modal" data-target="#registerModal">Register</button>
+
+
+                            <button id="logout_btn" type="button" style="margin-top:4%;" class="btn btn-danger"
+                                onclick="logout()">Logout</button>
+                            <img id="profile_picture" src="img/core-img/profile_icon.png"
+                                style="width:7%;margin-top:4%;border-radius:50%;;" alt="Avatar">
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <section class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(img/bg-img/13.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcrumb-content">
+                        <h2>Peer Benchmarking</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Peer Benchmarking</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Breadcrumb Area End ##### -->
+
+
+    <!-- ###### Modal Start #####-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Pandemic</h5> <!-- Keyword -->
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <strong>Key Learning Point</strong>
+                    <p>The risk for investments will increase!</p>
+
+                    <strong>Actionable Steps</strong>
+                    <p>Buy more defensive stocks and sell cyclic stocks.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Modal End ##### -->
+
+    <!-- ##### Services Area Start ###### -->
+    <section class="services-area section-padding-100-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                    <table class="table table-dark">
+                        <thead>
+                            <tr>
+                                <th scope="col">Select Category</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row"><input type="radio" id="Tech" name="stock" value="Tech"
+                                        onclick="showTech()"><label for="Tech"> Tech</label><br></th>
+                            </tr>
+                            <tr>
+                                <th scope="row"><input type="radio" id="FMCG" name="stock" value="FMCG"
+                                        onclick="showFMCG()"><label for="FMCG"> FMCG</label><br></th>
+                            </tr>
+                            <tr>
+                            <tr>
+                                <th scope="row"><input type="radio" id="Healthcare" name="stock" value="Healthcare"
+                                        onclick="showHealthcare()"><label for="Healthcare"> Healthcare</label><br></th>
+                            </tr>
+                            <tr>
+                            <tr>
+                                <th scope="row"><input type="radio" id="Finances" name="stock" value="Finances"
+                                        onclick="showFinances()"><label for="Finances"> Financials</label><br></th>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-4">
+                    <table class="table table-dark" id="selectStockTable">
+                        <thead>
+                            <tr>
+                                <th scope="col">Select Primary Stock</th>
+                                <th scope="col">Key</th>
+                            </tr>
+
+
+
+                            </tbody>
+                    </table>
+
+                    <script>
+                        // Declare Global Variable
+                        dataset = null;
+                        primaryStock = null;
+                        secondaryStocks = [];
+                        primaryStockMetrics = [];
+                        secondaryStockMetrics =[];
+                        totalStockMetrics = null;
+                        string = null;
+                        temp = [];
+                        counter =0;
+
+                        function showTech() {
+
+                            var jsonData = $.get("http://107.21.167.79:5004/stocks/retrieveByCategory/Tech", function (dataJSON) {
+                                dataset = dataJSON;
+                                // console.log(dataJSON);
+                                element = "<tr><th scope='col'>Select Primary Stock</th><th scope='col'>Key</th></tr>";
+                                for (var key in dataJSON) {
+                                    element += "<tr>";
+                                    element += "<td>";
+                                    element += "<input type='radio' onclick='showSecondary(\"" + key +"\")' id='" + dataJSON[key]["name"] + "' name='stockSelect' value='" + key + "'><label for='" + dataJSON[key]["name"] + "'>" + dataJSON[key]["name"] + "</label><br>"
+                                    element += dataJSON[key]["name"];
+                                    element += "</td>";
+                                    element += "<td>"
+                                    element += key;
+                                    element += "</td>";
+                                    element += "</tr>";
+                                }
+                                $('#selectStockTable').html($.parseHTML(element));
+                            });
+                        }
+                        function showFMCG() {
+
+                            var jsonData = $.get("http://107.21.167.79:5004/stocks/retrieveByCategory/FMCG", function (dataJSON) {
+                                dataset = dataJSON;
+                                // console.log(dataJSON);
+                                element = "<tr><th scope='col'>Select Secondary Stock</th><th scope='col'>Key</th></tr>";
+                                for (var key in dataJSON) {
+                                    element += "<tr>";
+                                    element += "<td>";
+                                    element += "<input type='radio' onclick='showSecondary(\"" + key +"\")' id='" + dataJSON[key]["name"] + "' name='stockSelect' value='" + key + "'><label for='" + dataJSON[key]["name"] + "'>" + dataJSON[key]["name"] + "</label><br>"
+                                    // element += dataJSON[key]["name"];
+                                    element += "</td>";
+                                    element += "<td>"
+                                    element += key;
+                                    element += "</td>";
+                                    element += "</tr>";
+                                }
+                                $('#selectStockTable').html($.parseHTML(element));
+                            });
+                        }
+                        function showHealthcare() {
+
+                            var jsonData = $.get("http://107.21.167.79:5004/stocks/retrieveByCategory/Healthcare", function (dataJSON) {
+                                dataset = dataJSON;
+                                // console.log(dataJSON);
+                                element = "<tr><th scope='col'>Select Secondary Stock</th><th scope='col'>Key</th></tr>";
+                                for (var key in dataJSON) {
+                                    element += "<tr>";
+                                    element += "<td>";
+                                    element += "<input type='radio' onclick='showSecondary(\"" + key +"\")' id='" + dataJSON[key]["name"] + "' name='stockSelect' value='" + key + "'><label for='" + dataJSON[key]["name"] + "'>" + dataJSON[key]["name"] + "</label><br>"
+                                    // element += dataJSON[key]["name"];
+                                    element += "</td>";
+                                    element += "<td>"
+                                    element += key;
+                                    element += "</td>";
+                                    element += "</tr>";
+                                }
+                                $('#selectStockTable').html($.parseHTML(element));
+                            });
+                        }
+                        function showFinances() {
+                            var jsonData = $.get("http://107.21.167.79:5004/stocks/retrieveByCategory/Financials", function (dataJSON) {
+                                dataset = dataJSON;
+                                // console.log(dataJSON);
+                                element = "<tr><th scope='col'>Select Secondary Stock</th><th scope='col'>Key</th></tr>";
+                                for (var key in dataJSON) {
+                                    element += "<tr>";
+                                    element += "<td>";
+                                    element += "<input type='radio' onclick='showSecondary(\"" + key +"\")' id='" + dataJSON[key]["name"] + "' name='stockSelect' value='" + key + "'><label for='" + dataJSON[key]["name"] + "'>" + dataJSON[key]["name"] + "</label><br>"
+                                    // element += dataJSON[key]["name"];
+                                    element += "</td>";
+                                    element += "<td>"
+                                    element += key;
+                                    element += "</td>";
+                                    element += "</tr>";
+                                }
+                                $('#selectStockTable').html($.parseHTML(element));
+                            });
+                        }
+
+
+                    </script>
+
+                    </thead>
+                    <tbody>
+
+
+
+
+                </div>
+
+                <div class="col-4">
+                    <table class="table table-dark" id="selectSecondaryStocksTable">
+                        <thead>
+                            <tr>
+                                <th scope="col">Select Secondary Stocks</th>
+                                <th scope="col">Key</th>
+                            </tr>
+
+                            <script>
+                                function showSecondary(pStock) {
+                                    // alert(pStock);
+                                    
+                                    primaryStock = pStock;
+                                    secondaryStocks = [primaryStock];
+                                    elementt = "<tr><th scope='col'>Select Secondary Stock</th><th scope='col'>Key</th></tr>";
+                                    for (var key in dataset) {
+                                        if(key != pStock){
+                                            elementt += "<tr>";
+                                            elementt += "<td>";
+                                            elementt += "<input type='checkbox' onclick='showMetrics(\"" + key + "s" +"\")'id='" + key + "s" + "' name='stockSelect' value='" + key + "'><label for='" + key + "'>" + dataset[key]["name"] + "</label><br>"
+                                            // element += dataJSON[key]["name"];
+                                            elementt += "</td>";
+                                            elementt += "<td>"
+                                            elementt += key;
+                                            elementt += "</td>";
+                                            elementt += "</tr>";
+                                        }
+                                        
+
+                                    }
+
+
+
+                                    $('#selectSecondaryStocksTable').html($.parseHTML(elementt));
+
+                                }
+
+                                // function showMetrics(secondary){
+                                //     // alert(document.getElementById(secondary).checked == True);
+                                //     // id = secondary + "Secondary";
+                                //     alert(document.getElementById(secondary).checked)
+                                //     if(document.getElementById(secondary).checked){
+                                //         alert(secondary.slice(0,-1))
+                                //         secondaryStocks.push(secondary.slice(0,-1));
+                                //         // alert(document.getElementById(secondary).checked);
+                                //     }else{
+                                //         index = secondaryStocks.indexOf(secondary.slice(0,-1));
+                                //         secondaryStocks.splice(index, 1);
+                                //     }
+                                //     console.log(secondaryStocks);
+                                // }
+
+                            </script>
+                    </table>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="row">
+
+                <div class="col-12">
+                    <table class="table table-dark" id="metricsTable">
+                        <thead>
+                            <tr>
+                                <th scope="col">Metric</th>
+                                <th scope="col">Value</th>
+                                <th scope="col">Min</th>
+                                <th scope="col">Max</th>
+                                <th scope="col">Lagging Peer</th>
+                                <th scope="col">Leading Peer</th>
+                            </tr>
+
+                            <script>
+                                function showMetrics(secondary){
+                                    // alert(document.getElementById(secondary).checked)
+                                    if(document.getElementById(secondary).checked){
+                                        // alert(secondary.slice(0,-1))
+                                        secondaryStocks.push(secondary.slice(0,-1));
+                                        // alert(document.getElementById(secondary).checked);
+                                    }else{
+                                        index = secondaryStocks.indexOf(secondary.slice(0,-1));
+                                        secondaryStocks.splice(index, 1);
+                                    }
+                                    console.log(secondaryStocks);
+
+                                    metrics = ["ebitda", "peRatio", "priceToSalesRatio", "enterpriseValueOverEBITDA", "interestCoverage", "threeYRevenueGrowthPerShare", "threeYOperatingCFGrowthPerShare", "threeYNetIncomeGrowthPerShare"];
+                                    // alert(primaryStock);
+                                    string = "<tr><th scope='col'>Metric</th><th scope='col'>Value</th><th scope='col'>Min</th><th scope='col'>Max</th><th scope='col'>Lagging Peer</th><th scope='col'>Leading Peer</th></tr>";
+                                    
+                                    var jsonData = $.get("http://107.21.167.79:5004/stocks/retrieveTickerStatistics/"+primaryStock, function (dataJSON) {
+                                        // primaryStockMetrics = dataJSON;
+                                        console.log(dataJSON);
+                                        metrics = ["ebitda", "peRatio", "priceToSalesRatio", "enterpriseValueOverEBITDA", "interestCoverage", "threeYRevenueGrowthPerShare", "threeYOperatingCFGrowthPerShare", "threeYNetIncomeGrowthPerShare"];
+                                        // alert(metrics.length);
+                                        for(z=0;z<metrics.length;z++){
+            
+                                            string += "<tr>";
+                                            string += "<td>";
+                                            string += metrics[z];
+                                            string += "</td>";
+
+                                            string += "<td>";
+                                            string += dataJSON[metrics[z]];
+                                            string += "</td>"
+                                            // string += "</tr>";
+                                            // alert(JSON.stringify(totalStockMetrics));
+                                            
+                                            temp =[];
+                                            for(x=0;x<secondaryStocks.length;x++){
+                                                // alert(x);   
+                                                counter = z;
+                                                // alert(counter);
+                                                // alert(secondaryStocks[x]);
+                                                var jsonData = $.get("http://107.21.167.79:5004/stocks/retrieveTickerStatistics/"+secondaryStocks[x], function (datas) {
+                                                    metrics = ["ebitda", "peRatio", "priceToSalesRatio", "enterpriseValueOverEBITDA", "interestCoverage", "threeYRevenueGrowthPerShare", "threeYOperatingCFGrowthPerShare", "threeYNetIncomeGrowthPerShare"];
+                                                    // alert(counter);
+                                                    // alert(JSON.stringify(dataJSON));
+
+                                                    // alert(JSON.stringify(dataJSON[metrics[counter]]));
+                                                    if(temp.length >1){
+                                                        // const str = "['6.35', '2.72', '11.79', '183.25']",
+                                                        // array = temp.match(/\d+(?:\.\d+)?/g).map(Number);
+                                                        // alert();
+                                                        minValue = Math.min(temp);
+                                                        maxValue = Math.max(temp);
+                                                        alert(JSON.stringify(temp[-1]));    
+                                                        string += "<td>";
+                                                        string += temp[-1];
+                                                        string += "</td>";
+                                                        string += "<td>";
+                                                        string += maxValue;
+                                                        string += "</td>";
+                                                        string += "</tr>";
+                                                        secondaryStockMetrics.push(temp);
+                                                        totalStockMetrics = secondaryStockMetrics;
+                                                        temp = [];
+                                                        
+                                                        
+                                                        // alert(JSON.stringify(secondaryStockMetrics));
+                                                        temp.push(datas[metrics[counter]]);
+                                                    }else{
+                                                        temp.push(datas[metrics[counter]]);
+                                                    }
+                                                    
+                                                    // alert(JSON.stringify(temp));
+
+                                                    
+                                                });
+                                            }
+                                            // alert(JSON.stringify(totalStockMetrics));
+                                            // alert(JSON.stringify(temp));
+                                            // secondaryStockMetrics.push(temp);
+                                            temp =[];
+
+                                            
+                                            
+
+
+
+                                        };
+                                        // alert(JSON.stringify(secondaryStockMetrics));
+                                        // alert(JSON.stringify(secondaryStocksMetrics));
+
+
+                                        $('#metricsTable').html($.parseHTML(string));
+                                        // console.log(secondaryStockMetrics);
+                                        
+                                        
+                                        // console.log(primaryStockMetrics);
+                                    });
+                                    // console.log(primaryStockMetrics);
+
+                                    // alert(JSON.stringify(secondaryStockMetrics));
+                                }
+                                
+
+                            </script>
+                        </thead>
+                    </table>
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+        </div>
+    </section>
+    <!-- ##### Services Area End ###### -->
+
+    <!-- ##### Special Feature Area Start ###### -->
+   
+    <!-- ##### Special Feature Area End ###### -->
+
+    <!-- ##### Special Feature Area Start ###### -->
+   
+    <!-- ##### Special Feature Area End ###### -->
+
+    <!-- ##### FAQ Area Start ###### -->
+    
+    <!-- ##### FAQ Area End ###### -->
+
+    <!-- ##### Newsletter Area Start ###### -->
+    <section class="newsletter-area section-padding-100 bg-img jarallax"
+        style="background-image: url(img/bg-img/6.jpg);">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-sm-10 col-lg-8">
+                    <div class="nl-content text-center">
+                        <h2>Subscribe to our newsletter</h2>
+                        <form action="#" method="post">
+                            <input type="email" name="nl-email" id="nlemail" placeholder="Your e-mail">
+                            <button type="submit">Subscribe</button>
+                        </form>
+                        <p>Curabitur elit turpis, maximus quis ullamcorper sed, maximus eu neque. Cras ultrices erat nec
+                            auctor blandit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Newsletter Area End ###### -->
+
+    <!-- ##### Footer Area Start ##### -->
+    <footer class="footer-area section-padding-100-0">
+        <div class="container">
+            <div class="row">
+
+                <!-- Single Footer Widget -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-footer-widget mb-100">
+                        <h5 class="widget-title">About Us</h5>
+                        <!-- Nav -->
+                        <nav>
+                            <ul>
+                                <li><a href="#">Homepage</a></li>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Services &amp; Offers</a></li>
+                                <li><a href="#">Portfolio Presentation</a></li>
+                                <li><a href="#">The News</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- Single Footer Widget -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-footer-widget mb-100">
+                        <h5 class="widget-title">Solutions</h5>
+                        <!-- Nav -->
+                        <nav>
+                            <ul>
+                                <li><a href="#">Our Loans</a></li>
+                                <li><a href="#">Trading &amp; Commerce</a></li>
+                                <li><a href="#">Banking &amp; Private Equity</a></li>
+                                <li><a href="#">Industrial &amp; Factory</a></li>
+                                <li><a href="#">Financial Solutions</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- Single Footer Widget -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-footer-widget mb-100">
+                        <h5 class="widget-title">Our Loans</h5>
+                        <!-- Nav -->
+                        <nav>
+                            <ul>
+                                <li><a href="#">Our Loans</a></li>
+                                <li><a href="#">Trading &amp; Commerce</a></li>
+                                <li><a href="#">Banking &amp; Private Equity</a></li>
+                                <li><a href="#">Industrial &amp; Factory</a></li>
+                                <li><a href="#">Financial Solutions</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- Single Footer Widget -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-footer-widget mb-100">
+                        <h5 class="widget-title">Latest News</h5>
+
+                        <!-- Single News Area -->
+                        <div class="single-latest-news-area d-flex align-items-center">
+                            <div class="news-thumbnail">
+                                <img src="img/bg-img/7.jpg" alt="">
+                            </div>
+                            <div class="news-content">
+                                <a href="#">How to get the best loan?</a>
+                                <div class="news-meta">
+                                    <a href="#" class="post-author"><img src="img/core-img/pencil.png" alt=""> Jane
+                                        Smith</a>
+                                    <a href="#" class="post-date"><img src="img/core-img/calendar.png" alt=""> April
+                                        26</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Single News Area -->
+                        <div class="single-latest-news-area d-flex align-items-center">
+                            <div class="news-thumbnail">
+                                <img src="img/bg-img/8.jpg" alt="">
+                            </div>
+                            <div class="news-content">
+                                <a href="#">A new way to get a loan</a>
+                                <div class="news-meta">
+                                    <a href="#" class="post-author"><img src="img/core-img/pencil.png" alt=""> Jane
+                                        Smith</a>
+                                    <a href="#" class="post-date"><img src="img/core-img/calendar.png" alt=""> April
+                                        26</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Single News Area -->
+                        <div class="single-latest-news-area d-flex align-items-center">
+                            <div class="news-thumbnail">
+                                <img src="img/bg-img/9.jpg" alt="">
+                            </div>
+                            <div class="news-content">
+                                <a href="#">Finance you home</a>
+                                <div class="news-meta">
+                                    <a href="#" class="post-author"><img src="img/core-img/pencil.png" alt=""> Jane
+                                        Smith</a>
+                                    <a href="#" class="post-date"><img src="img/core-img/calendar.png" alt=""> April
+                                        26</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copywrite Area -->
+        <div class="copywrite-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="copywrite-content d-flex flex-wrap justify-content-between align-items-center">
+                            <!-- Footer Logo -->
+                            <a href="index.html" class="footer-logo"><img src="img/core-img/logo.png" alt=""></a>
+
+                            <!-- Copywrite Text -->
+                            <p class="copywrite-text"><a href="#">
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                    Copyright &copy;
+                                    <script>document.write(new Date().getFullYear());</script> All rights reserved by
+                                    Blueprint Technologies
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ##### Footer Area Start ##### -->
+
+    <!-- ##### All Javascript Script ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/bootstrap/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <!-- All Plugins js -->
+    <script src="js/plugins/plugins.js"></script>
+    <!-- Active js -->
+    <script src="js/active.js"></script>
+
+
+
+    <script>
+        function openModal() {
+            // document.getElementById("demo").innerHTML = "YOU CLICKED ME!";
+            $("#exampleModal").modal()
+        }
+    </script>
+
+    <!-- #### Register Script Start #### -->
+    <script>
+
+
+
+
+
+
+
+
+
+
+
+
+        async function registerAccount() {
+
+
+            var username = document.getElementById("register_username").value;
+
+            var password = document.getElementById("register_password").value;
+
+            var confirm_password = document.getElementById("register_confirm_password").value;
+
+            var name = document.getElementById("register_name").value;
+
+            var serviceURL = "http://107.21.167.79:5001/account/" + username
+
+
+            if (password == confirm_password) {
+
+                // localStorage.email = customer.email;
+                try {
+
+                    const response =
+
+                        await fetch(
+
+                            serviceURL, {
+
+                            method: 'POST',
+
+                            headers: { "Content-Type": "application/json" },
+
+                            body: JSON.stringify({ password: password, name: name })
+
+                        }
+
+                        );
+
+
+
+                    const data = await response.json();
+
+                    var customer = data;
+                    location.reload();
+                    alert("Account Registered!");
+                    $('#registerModal').modal('hide');
+
+
+
+
+
+                } catch (error) {
+
+                    showError('There is a problem retrieving customer data, please try again later.<br />' + error);
+
+                }
+
+
+            }
+
+            else {
+
+                showError('Passwords do not match!');
+
+            }
+            // window.location.replace('/index.html')
+            location.reload();
+            $('#registerModal').modal('hide');
+
+
+
+
+
+
+        }
+
+    </script>
+    <!-- #### Register Script End #### -->
+
+
+
+
+    <!-- #### Log In Script Start #### -->
+    <script>
+
+
+
+
+
+
+
+
+
+
+
+
+        async function loginAccount() {
+
+
+            var username = document.getElementById("login_username").value;
+
+            var password = document.getElementById("login_password").value;
+
+
+            var serviceURL = "http://107.21.167.79:5001/account/authenticate/" + username
+
+
+
+            try {
+
+                const response =
+
+                    await fetch(
+
+                        serviceURL, {
+
+                        method: 'POST',
+
+                        headers: { "Content-Type": "application/json" },
+
+                        body: JSON.stringify({ password: password })
+
+
+                    }
+
+                    );
+
+
+
+                const data = await response.json();
+
+                var customer = data;
+
+                location.reload();
+                alert("Logged in!");
+                $('#loginModal').modal('hide');
+                sessionStorage.setItem("loggedin_user", username);
+
+
+            } catch (error) {
+
+                showError('There is a problem retrieving customer data, please try again later.<br />' + error);
+
+            }
+            location.reload();
+            $('#loginModal').modal('hide');
+            sessionStorage.setItem("loggedin_user", username);
+
+
+
+
+
+
+
+
+
+        }
+
+    </script>
+    <!-- #### Log In Script End #### -->
+
+    <script>
+        // alert(loggedin_user);
+        loggedin_user = sessionStorage.getItem("loggedin_user");
+
+        if (loggedin_user != null) {
+
+            var loginbtn = document.getElementById('login_btn');
+            loginbtn.style.display = "none";
+
+            var registerbtn = document.getElementById('register_btn');
+            registerbtn.style.display = "none";
+
+        } else {
+            // alert(loggedin_user);
+
+
+            var profilepicture = document.getElementById('profile_picture');
+            profilepicture.style.display = "none";
+
+            var logoutbtn = document.getElementById('logout_btn');
+            logoutbtn.style.display = "none";
+        }
+
+        function logout() {
+            alert("You have been logged out!");
+            sessionStorage.removeItem('loggedin_user');
+            location.reload();
+        }
+    </script>
+</body>
+
+</html>

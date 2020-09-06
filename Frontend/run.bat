@@ -1,4 +1,4 @@
-START ..\Microservices\Stocks\Stocks.py
+START C:\wamp64\www\BlueprintTechnologies\Microservices\Stocks\Stocks.py
 START ..\Microservices\InsightService\manage.py
 START ..\Microservices\GlossaryService\manage.py
 START ..\Microservices\DemoGame\DemoGame.py
