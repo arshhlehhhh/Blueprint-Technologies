@@ -25,63 +25,66 @@
 <body>
 
     <!--#### Register Modal Start ####-->
-    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Register Account</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
-            <div class="modal-body">
-                <input class="form-control" id="register_name" type="text" placeholder="Name"><br>
-                <input class="form-control" id="register_username" type="text" placeholder="Username"><br>
-                <input class="form-control" id="register_password" type="password" placeholder="Password"><br>
-                <input class="form-control" id="register_confirm_password" type="password" placeholder="Confirm Password">
-            </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" onclick="registerAccount()">Register</button>
-            </div>
-            </div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Register Account</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input class="form-control" id="register_name" type="text" placeholder="Name"><br>
+                    <input class="form-control" id="register_username" type="text" placeholder="Username"><br>
+                    <input class="form-control" id="register_password" type="password" placeholder="Password"><br>
+                    <input class="form-control" id="register_confirm_password" type="password"
+                        placeholder="Confirm Password">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="registerAccount()">Register</button>
+                </div>
             </div>
         </div>
     </div>
-<!--#### Register Modal End ####-->
+    </div>
+    <!--#### Register Modal End ####-->
 
-<!--#### Log In Modal Start ####-->
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-    <div class="modal-content">
-        <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Register Account</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        </div>
-        <div class="modal-body">
-            <input class="form-control" id="login_username" type="text" placeholder="Username"><br>
-            <input class="form-control" id="login_password" type="password" placeholder="Password"><br>
-        </div>
+    <!--#### Log In Modal Start ####-->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Register Account</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input class="form-control" id="login_username" type="text" placeholder="Username"><br>
+                    <input class="form-control" id="login_password" type="password" placeholder="Password"><br>
+                </div>
 
-        <script>
-            loggedin_user = sessionStorage.getItem("loggedin_user");
+                <script>
+                    loggedin_user = sessionStorage.getItem("loggedin_user");
             // alert(loggedin_user);
-        </script>
+                </script>
 
-        <div class="modal-footer">
-        
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onclick="loginAccount()">Log In</button>
+                <div class="modal-footer">
 
-        
-        </div>
-        </div>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="loginAccount()">Log In</button>
+
+
+                </div>
+            </div>
         </div>
     </div>
-</div>
-<!--#### Log In Modal End ####-->
+    </div>
+    <!--#### Log In Modal End ####-->
 
     <!-- Preloader -->
     <div class="preloader d-flex align-items-center justify-content-center">
@@ -107,8 +110,11 @@
 
                         <!-- Top Contact Info -->
                         <div class="top-contact-info d-flex align-items-center">
-                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="25 th Street Avenue, Los Angeles, CA"><img src="img/core-img/placeholder.png" alt=""> <span>25 th Street Avenue, Los Angeles, CA</span></a>
-                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="office@yourfirm.com"><img src="img/core-img/message.png" alt=""> <span>office@yourfirm.com</span></a>
+                            <a href="#" data-toggle="tooltip" data-placement="bottom"
+                                title="25 th Street Avenue, Los Angeles, CA"><img src="img/core-img/placeholder.png"
+                                    alt=""> <span>25 th Street Avenue, Los Angeles, CA</span></a>
+                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="office@yourfirm.com"><img
+                                    src="img/core-img/message.png" alt=""> <span>office@yourfirm.com</span></a>
                         </div>
                     </div>
                 </div>
@@ -140,9 +146,9 @@
                                 <ul>
                                     <li><a href="index.html">Home</a></li>
                                     <li><a href="about.html">About Us</a></li>
-                                    
+
                                     <li><a href="decipher_news.html">Decipher News</a></li>
-                                    
+
                                     <li><a href="demo_account.html">Demo Account</a></li>
                                     <li><a href="blog.html">Blog</a></li>
                                     <li><a href="glossary.html">Glossary</a></li>
@@ -154,12 +160,16 @@
 
                         <!-- Contact -->
                         <div class="contact">
-                            <button id="login_btn" type="button" style="margin-top:15%;" class="btn btn-info" data-toggle="modal" data-target="#loginModal">Log In</button>
-                            <button id="register_btn" type="button" style="margin-top:15%;" class="btn btn-primary" data-toggle="modal" data-target="#registerModal">Register</button>
-                            
-    
-                            <button id="logout_btn" type="button" style="margin-top:4%;" class="btn btn-danger" onclick="logout()">Logout</button>
-                            <img id="profile_picture" src="img/core-img/profile_icon.png" style="width:7%;margin-top:4%;border-radius:50%;;" alt="Avatar">
+                            <button id="login_btn" type="button" style="margin-top:15%;" class="btn btn-info"
+                                data-toggle="modal" data-target="#loginModal">Log In</button>
+                            <button id="register_btn" type="button" style="margin-top:15%;" class="btn btn-primary"
+                                data-toggle="modal" data-target="#registerModal">Register</button>
+
+
+                            <button id="logout_btn" type="button" style="margin-top:4%;" class="btn btn-danger"
+                                onclick="logout()">Logout</button>
+                            <img id="profile_picture" src="img/core-img/profile_icon.png"
+                                style="width:7%;margin-top:4%;border-radius:50%;;" alt="Avatar">
                         </div>
                     </nav>
                 </div>
@@ -204,41 +214,146 @@
 
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
-                  <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Articles</a>
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                        aria-controls="home" aria-selected="true">Articles</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Industry Drivers</a>
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                        aria-controls="profile" aria-selected="false">Industry Drivers</a>
                 </li>
-                
-              </ul>
-              <div class="tab-content" id="myTabContent">
+
+            </ul>
+            <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <!-- #### Articles Start #### -->
                     <br>
-                    <div class="row">
+                    <div class="row" id="articleRow">
+
+                        <script>
+                            var jsonData = $.get("http://192.168.1.226:8051/api/getarticles", function (dataJSON) {
+
+
+                                // alert(dataJSON[0]["articleData"]["autoGeneratedSummary"]);
+
+                                console.log(dataJSON);
+
+
+                                for (i = 0; i < dataJSON.length; i++) {
+                                    card = document.createElement('div');
+                                    card.classList.add("card");
+                                    card.style.width = "100%";
+                                    card.style.height = "350px";
+
+                                    cardHeader = document.createElement('div');
+                                    cardHeader.classList.add("card-header");
+                                    card.appendChild(cardHeader);
+
+                                    cardDate = document.createTextNode(dataJSON[i]["timestamp"]);
+                                    cardHeader.appendChild(cardDate);
+
+                                    cardBody = document.createElement('div');
+                                    cardBody.classList.add("card-body");
+                                    cardBody.style.padding = "5%";
+                                    card.appendChild(cardHeader);
+
+                                    cardHeader = document.createElement('h5');
+                                    cardHeader.classList.add("card-title");
+
+                                    cardHeaderContent = document.createTextNode(dataJSON[i]["articleData"]["title"]);
+                                    cardHeader.appendChild(cardHeaderContent);
+                                    cardBody.appendChild(cardHeader);
+
+                                    cardParagraph = document.createElement('p');
+                                    cardParagraph.classList.add("card-text");
+
+                                    cardSentiment = document.createElement('strong');
+                                    if (dataJSON[i]["articleData"]["Sentiment"] == "NEUTRAL") {
+                                        cardSentiment.style.color = "#FF8000";
+                                    } else if (dataJSON[i]["articleData"]["Sentiment"] == "NEGATIVE") {
+                                        cardSentiment.style.color = "#CC0000";
+                                    } else {
+                                        cardSentiment.style.color = "#00994C";
+                                    }
+                                    sentimentDescription = document.createTextNode("Sentiment Analysis : ");
+                                    sentiment = document.createTextNode(dataJSON[i]["articleData"]["Sentiment"]);
+                                    cardSentimentDescription = document.createElement('strong');
+                                    cardSentimentDescription.appendChild(sentimentDescription);
+                                    cardSentiment.appendChild(sentiment);
+                                    cardBody.appendChild(cardSentimentDescription);
+                                    cardBody.appendChild(cardSentiment);
+
+                                    if (dataJSON[i]["articleData"]["autoGeneratedSummary"] != "") {
+                                        // cardText = "<p>";
+                                        // cardText += dataJSON[i]["articleData"]["autoGeneratedSummary"];
+                                        // cardText += "</p>";
+                                        cardText = document.createTextNode(dataJSON[i]["articleData"]["autoGeneratedSummary"]);
+                                    } else {
+                                        cardText = document.createTextNode("SINGAPORE (BLOOMBERG) - Asia's wealthy are readying cash to take advantage of opportunities in financial markets and private equity once the impact of the coronavirus pandemic subsides, according to the head of private banking at South-east Asia's largest lender.");
+                                    }
+                                    cardText = document.createTextNode(dataJSON[i]["articleData"]["autoGeneratedSummary"]);
+                                    cardParagraph.appendChild(cardText);
+                                    cardBody.appendChild(cardParagraph);
+                                    
+                                    // $('#stockInfo').html($.parseHTML(stockChoices))
+                                    // cardBody.html($.parseHTML(cardText));
+
+                                    a = document.createElement('a');
+                                    aText = document.createTextNode("Read More");
+                                    a.appendChild(aText);
+                                    a.style.color = "blue";
+                                    a.title = "Read More";
+                                    a.href = dataJSON[i]["articleData"]["url"]
+                                    cardBody.appendChild(a);
+
+                                    card.appendChild(cardBody);
+
+                                    console.log(card);
+                                    articleRow = document.getElementById("articleRow");
+                                    articleRow.appendChild(card);
+                                }
+
+                            });
+
+
+                            function showModal1() {
+                                $("#modal1").modal()
+                            }
+                            function showModal2() {
+                                $("#modal2").modal()
+                            }
+
+                        </script>
+                        <!-- Article Template 1 -->
+                        <div class="card" style="width:100%;">
+                            <div class="card-header">
+                                2020-09-06
+                            </div>
+                            <div class="card-body">
+
+                                <h5 class="card-title">Regulator set to announce winners of MyData business</h5>
+                                <strong>Sentiment Analysis : </strong><strong style="color:#00994C">POSITIVE</strong>
+                                <p class="card-text">The country's top financial <span onclick="showModal2()" style="color:blue;">regulator</span> is set to announce those that qualify for MyData business as the Financial Supervisory Service (FSS) nears completion of its assessment of 38 candidates that requested approval to start the business.
+                                </p>
+                                <a title="Read More"
+                                    href="https://www.koreatimes.co.kr/www/biz/2020/09/367_295375.html"
+                                    style="color:blue;">Read More</a>
+                            </div>
+                        </div>
+
 
                         <!-- Article Template 1 -->
                         <div class="card" style="width:100%;">
                             <div class="card-header">
-                            4th Sep 2020
+                                2020-09-06
                             </div>
                             <div class="card-body">
-                            <h5 class="card-title">All Integrated Shield Plans to provide coverage of diagnostic endoscopy, says insurance body following outcry</h5>
-                            <p class="card-text">SINGAPORE - All Integrated Shield Plan (IP) insurers will provide coverage of diagnostic endoscopy - a common procedure that allows doctors to look inside a patient's body and detect diseases - which are medically necessary, said the Life Insurance Association, Singapore (LIA) in a statement on Friday (Sept 4).</p>
-                            <a href="article.html" class="btn btn-primary">Read</a>
-                            </div>
-                        </div>
-                        
-                        
-                        <!-- Article Template 1 -->
-                        <div class="card" style="width:100%;">
-                            <div class="card-header">
-                            4th Sep 2020
-                            </div>
-                            <div class="card-body">
-                            <h5 class="card-title">DBS says rich Asians are hoarding cash for post-pandemic deals</h5>
-                            <p class="card-text">SINGAPORE (BLOOMBERG) - Asia's wealthy are readying cash to take advantage of opportunities in financial markets and private equity once the impact of the coronavirus pandemic subsides, according to the head of private banking at South-east Asia's largest lender.</p>
-                            <a href="article.html" class="btn btn-primary">Read</a>
+                                <h5 class="card-title">Fed Officials Push Back on Updated Rate Guidance at Next Meeting
+                                </h5>
+                                <strong>Sentiment Analysis : </strong><strong style="color:#CC0000">NEGATIVE</strong>
+                                <p class="card-text">“If I had a better idea of where we’re going to be next spring, and things like that, I’d know whether or not we need to ramp up extraordinarily accommodative policies like we did during the last recovery,” Chicago <span onclick="showModal1()" style="color:blue;">Fed</span> President Charles Evans told reporters Thursday after delivering a speech at a virtual event.</p>
+                                <a title="Read More"
+                                    href="https://www.bloomberg.com/news/articles/2020-09-03/fed-officials-push-back-on-updated-rate-guidance-at-next-meeting"
+                                    style="color:blue;">Read More</a>
                             </div>
                         </div>
 
@@ -251,13 +366,17 @@
                     <!-- #### Industry Drivers Start #### -->
                     <div class="card" style="width:100%;">
                         <div class="card-header">
-                        <h5>Banking and Finance Services</h5>
+                            <h5>Banking and Finance Services</h5>
                         </div>
                         <div class="card-body">
-                            <p class="card-title">Overview - Industry offers services like lending, insurance and securities management</p>
-                            <p class="card-text"><strong style="color:blue;">Products</strong> include credit cards, mortgages, loans, insurance, and checking/savings accounts </p>
-                            <p class="card-text"><strong style="color:blue;">Customers</strong> can be segmented by income levels, individual vs small businesses vs large businesses</p>
-                            <p class="card-text"><strong style="color:blue;">Highly competitive market:</strong> International and national players compete with regional banks and new online banks </p>
+                            <p class="card-title">Overview - Industry offers services like lending, insurance and
+                                securities management</p>
+                            <p class="card-text"><strong style="color:blue;">Products</strong> include credit cards,
+                                mortgages, loans, insurance, and checking/savings accounts </p>
+                            <p class="card-text"><strong style="color:blue;">Customers</strong> can be segmented by
+                                income levels, individual vs small businesses vs large businesses</p>
+                            <p class="card-text"><strong style="color:blue;">Highly competitive market:</strong>
+                                International and national players compete with regional banks and new online banks </p>
                             <br>
                             <strong style="color:blue;">Revenue Breakdown</strong>
                             <ol>
@@ -277,22 +396,34 @@
                             <br>
                             <strong style="color:blue;">Important Considerations</strong>
                             <ol>
-                                <li>Growth of mobile banking: disruption in the industry from Fintech and online banks.</li>
-                                <li>Regulations within the industry – e.g. Dodd-Frank increased capital requirements for banks.</li>
-                                <li>Changes in customer demographics creating a larger market for retirement products.</li>
+                                <li>Growth of mobile banking: disruption in the industry from Fintech and online banks.
+                                </li>
+                                <li>Regulations within the industry – e.g. Dodd-Frank increased capital requirements for
+                                    banks.</li>
+                                <li>Changes in customer demographics creating a larger market for retirement products.
+                                </li>
                             </ol>
-                            
+
                         </div><br>
 
                         <div class="card" style="width:100%;">
                             <div class="card-header">
-                            <h5>Retail</h5>
+                                <h5>Retail</h5>
                             </div>
                             <div class="card-body">
-                                <p class="card-title">Overview - Industry consists of department stores, wholesale retailers, discount stores, specialty retailers, and online retailers. Amazon and other online retailers caused major disruptions in the industry by <strong>lowering the operating costs and passing savings to customers.</strong> Technology also reduced bargaining power of retailers as <strong>customers can easily compare prices online. </strong></p>
-                                <p class="card-text"><strong style="color:blue;">Products</strong> include credit cards, mortgages, loans, insurance, and checking/savings accounts </p>
-                                <p class="card-text"><strong style="color:blue;">Customers</strong> can be segmented by income levels, individual vs small businesses vs large businesses</p>
-                                <p class="card-text"><strong style="color:blue;">Highly competitive market:</strong> International and national players compete with regional banks and new online banks </p>
+                                <p class="card-title">Overview - Industry consists of department stores, wholesale
+                                    retailers, discount stores, specialty retailers, and online retailers. Amazon and
+                                    other online retailers caused major disruptions in the industry by <strong>lowering
+                                        the operating costs and passing savings to customers.</strong> Technology also
+                                    reduced bargaining power of retailers as <strong>customers can easily compare prices
+                                        online. </strong></p>
+                                <p class="card-text"><strong style="color:blue;">Products</strong> include credit cards,
+                                    mortgages, loans, insurance, and checking/savings accounts </p>
+                                <p class="card-text"><strong style="color:blue;">Customers</strong> can be segmented by
+                                    income levels, individual vs small businesses vs large businesses</p>
+                                <p class="card-text"><strong style="color:blue;">Highly competitive market:</strong>
+                                    International and national players compete with regional banks and new online banks
+                                </p>
                                 <br>
                                 <strong style="color:blue;">Revenue Breakdown</strong>
                                 <ol>
@@ -317,23 +448,33 @@
                                 <br>
                                 <strong style="color:blue;">Important Considerations</strong>
                                 <ol>
-                                    <li>Seasonality is a big factor in retail sales – large portion of sales occur in holiday season / end of year.</li>
+                                    <li>Seasonality is a big factor in retail sales – large portion of sales occur in
+                                        holiday season / end of year.</li>
                                     <li>Social media presence has a large impact on brand strength and perceptions.</li>
-                                    <li>Omnichannel retail is growing through e-commerce development or acquisition.</li>
+                                    <li>Omnichannel retail is growing through e-commerce development or acquisition.
+                                    </li>
                                 </ol>
-                                
+
                             </div>
-                        
+
                             <div class="card" style="width:100%;">
                                 <div class="card-header">
-                                <h5>Consumer Packaged Goods (CPG)</h5>
+                                    <h5>Consumer Packaged Goods (CPG)</h5>
                                 </div>
                                 <div class="card-body">
-                                    <p class="card-title">Overview - Industry consists of household durable and non-durable products. Mature industry and concentrated market in the US with <strong>most growth coming from emerging markets.</strong> Sales are impacted by type of product – luxury vs necessity. Customers can be retailers or end users. </strong></p>
-                                    <p class="card-text"><strong style="color:blue;">Products</strong> include credit cards, mortgages, loans, insurance, and checking/savings accounts </p>
-                                    <p class="card-text"><strong style="color:blue;">Customers</strong> can be segmented by income levels, individual vs small businesses vs large businesses</p>
-                                    <p class="card-text"><strong style="color:blue;">Highly competitive market:</strong> International and national players compete with regional banks and new online banks </p>
-                                    
+                                    <p class="card-title">Overview - Industry consists of household durable and
+                                        non-durable products. Mature industry and concentrated market in the US with
+                                        <strong>most growth coming from emerging markets.</strong> Sales are impacted by
+                                        type of product – luxury vs necessity. Customers can be retailers or end users.
+                                        </strong></p>
+                                    <p class="card-text"><strong style="color:blue;">Products</strong> include credit
+                                        cards, mortgages, loans, insurance, and checking/savings accounts </p>
+                                    <p class="card-text"><strong style="color:blue;">Customers</strong> can be segmented
+                                        by income levels, individual vs small businesses vs large businesses</p>
+                                    <p class="card-text"><strong style="color:blue;">Highly competitive market:</strong>
+                                        International and national players compete with regional banks and new online
+                                        banks </p>
+
                                     <strong style="color:blue;">Revenue Breakdown</strong>
                                     <ol style="list-style-type: upper-roman;">
                                         <li>Sales direct to consumers (higher margins) </li>
@@ -342,7 +483,8 @@
                                     <br>
                                     <strong style="color:blue;">Revenue Drivers</strong>
                                     <ol style="list-style-type: upper-roman;">
-                                        <li>Shelf placement in stores vs competition (especially for private lables etc..)</li>
+                                        <li>Shelf placement in stores vs competition (especially for private lables
+                                            etc..)</li>
                                         <li>Packaging and price tiering </li>
                                         <li>Product portfolio (cannibalization vs complementary products) </li>
                                     </ol>
@@ -363,27 +505,28 @@
                                     <ol>
                                         <li>Discounts and price promotions have lowered margins.</li>
                                         <li>Cannibalisation can be a concern when introducing new products.</li>
-                                        <li>Tariffs and regulations play a role in imports/exports and where the firm is manufacturing or sourcing.</li>
+                                        <li>Tariffs and regulations play a role in imports/exports and where the firm is
+                                            manufacturing or sourcing.</li>
                                     </ol>
-                                    
+
                                 </div>
 
 
 
 
+                            </div>
+
+
+                            <!-- #### Industry Drivers End #### -->
+                        </div>
+
                     </div>
 
 
-                    <!-- #### Industry Drivers End #### -->
+
+
+
                 </div>
-                
-              </div>
-            
-            
-               
-    
-            
-        </div>
     </section>
     <!-- ##### Services Area End ###### -->
 
@@ -398,7 +541,10 @@
                     <p>Bold desing and beyound</p>
                     <h2>Easy and Fast credits</h2>
                 </div>
-                <h6>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis egestas sem. Duis non volutpat arcu, eu mollis tellus. Sed finibus aliquam neque sit amet sod ales. Maecenas sed magna tempor, efficitur maur is in, sollicitudin augue. Praesent pretium finibus quam.</h6>
+                <h6>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis
+                    egestas sem. Duis non volutpat arcu, eu mollis tellus. Sed finibus aliquam neque sit amet sod ales.
+                    Maecenas sed magna tempor, efficitur maur is in, sollicitudin augue. Praesent pretium finibus quam.
+                </h6>
                 <a href="#" class="btn credit-btn btn-2 box-shadow">Read More</a>
             </div>
         </div>
@@ -420,7 +566,10 @@
                     <p>Bold desing and beyound</p>
                     <h2>$1000 non the spot</h2>
                 </div>
-                <h6>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis egestas sem. Duis non volutpat arcu, eu mollis tellus. Sed finibus aliquam neque sit amet sod ales. Maecenas sed magna tempor, efficitur maur is in, sollicitudin augue. Praesent pretium finibus quam.</h6>
+                <h6>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis
+                    egestas sem. Duis non volutpat arcu, eu mollis tellus. Sed finibus aliquam neque sit amet sod ales.
+                    Maecenas sed magna tempor, efficitur maur is in, sollicitudin augue. Praesent pretium finibus quam.
+                </h6>
                 <a href="#" class="btn credit-btn box-shadow">Read More</a>
             </div>
         </div>
@@ -437,36 +586,105 @@
                     <div class="accordions mb-100" id="accordion" role="tablist" aria-multiselectable="true">
                         <!-- single accordian area -->
                         <div class="panel single-accordion">
-                            <h6><a role="button" class="" aria-expanded="true" aria-controls="collapseOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Morbi ut dapibus dui. Sed ut iaculis elit, quis varius
+                            <h6><a role="button" class="" aria-expanded="true" aria-controls="collapseOne"
+                                    data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Morbi ut dapibus
+                                    dui. Sed ut iaculis elit, quis varius
                                     <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
                                     <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
-                                    </a></h6>
+                                </a></h6>
                             <div id="collapseOne" class="accordion-content collapse show">
-                                <p>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis egestas sem. Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis egestas sem. </p>
+                                <p>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies
+                                    orci, lobortis egestas sem. Morbi ut dapibus dui. Sed ut iaculis elit, quis varius
+                                    mauris. Integer ut ultricies orci, lobortis egestas sem. </p>
                             </div>
                         </div>
+
+                        <!-- ###### Modal Start #####-->
+                        <div class="modal fade" id="modal1" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Fed</h5> <!-- Keyword -->
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <strong>Key Learning Point</strong>
+                                        <p>Short form for "Federal Reserve"" of the US. It is the US' Central Bank and they are key in setting interest rates, which affects global markets"</p>
+
+                                        <strong>Actionable Steps</strong>
+                                        <p>Controls interest rates. Look out for where interest rates are headed. If rates are going to be lowered or kept low, companies will benefit. Stocks will likely move up. Buy!</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ##### Modal End ##### -->
+
+                        <!-- ###### Modal Start #####-->
+                        <div class="modal fade" id="modal2" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Fed</h5> <!-- Keyword -->
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <strong>Key Learning Point</strong>
+                                        <p>Short form for "Federal Reserve"" of the US. It is the US' Central Bank and they are key in setting interest rates, which affects global markets"</p>
+
+                                        <strong>Actionable Steps</strong>
+                                        <p>Controls interest rates. Look out for where interest rates are headed. If rates are going to be lowered or kept low, companies will benefit. Stocks will likely move up. Buy!</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ##### Modal End ##### -->
+
                         <!-- single accordian area -->
                         <div class="panel single-accordion">
                             <h6>
-                                <a role="button" class="collapsed" aria-expanded="true" aria-controls="collapseTwo" data-parent="#accordion" data-toggle="collapse" href="#collapseTwo">Ert dapibus dui. Sed ut iaculis elit, quis vgyu
-                                        <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
-                                        <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
-                                        </a>
+                                <a role="button" class="collapsed" aria-expanded="true" aria-controls="collapseTwo"
+                                    data-parent="#accordion" data-toggle="collapse" href="#collapseTwo">Ert dapibus dui.
+                                    Sed ut iaculis elit, quis vgyu
+                                    <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                    <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                                </a>
                             </h6>
                             <div id="collapseTwo" class="accordion-content collapse">
-                                <p>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis egestas sem. Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis egestas sem. </p>
+                                <p>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies
+                                    orci, lobortis egestas sem. Morbi ut dapibus dui. Sed ut iaculis elit, quis varius
+                                    mauris. Integer ut ultricies orci, lobortis egestas sem. </p>
                             </div>
                         </div>
                         <!-- single accordian area -->
                         <div class="panel single-accordion">
                             <h6>
-                                <a role="button" aria-expanded="true" aria-controls="collapseThree" class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseThree">Ert dapibus dui. Sed ut iaculis elit, quis vgyu
-                                        <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
-                                        <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
-                                    </a>
+                                <a role="button" aria-expanded="true" aria-controls="collapseThree" class="collapsed"
+                                    data-parent="#accordion" data-toggle="collapse" href="#collapseThree">Ert dapibus
+                                    dui. Sed ut iaculis elit, quis vgyu
+                                    <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                    <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                                </a>
                             </h6>
                             <div id="collapseThree" class="accordion-content collapse">
-                                <p>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis egestas sem. Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis egestas sem. </p>
+                                <p>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies
+                                    orci, lobortis egestas sem. Morbi ut dapibus dui. Sed ut iaculis elit, quis varius
+                                    mauris. Integer ut ultricies orci, lobortis egestas sem. </p>
                             </div>
                         </div>
                     </div>
@@ -484,7 +702,8 @@
     <!-- ##### FAQ Area End ###### -->
 
     <!-- ##### Newsletter Area Start ###### -->
-    <section class="newsletter-area section-padding-100 bg-img jarallax" style="background-image: url(img/bg-img/6.jpg);">
+    <section class="newsletter-area section-padding-100 bg-img jarallax"
+        style="background-image: url(img/bg-img/6.jpg);">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-sm-10 col-lg-8">
@@ -494,7 +713,8 @@
                             <input type="email" name="nl-email" id="nlemail" placeholder="Your e-mail">
                             <button type="submit">Subscribe</button>
                         </form>
-                        <p>Curabitur elit turpis, maximus quis ullamcorper sed, maximus eu neque. Cras ultrices erat nec auctor blandit.</p>
+                        <p>Curabitur elit turpis, maximus quis ullamcorper sed, maximus eu neque. Cras ultrices erat nec
+                            auctor blandit.</p>
                     </div>
                 </div>
             </div>
@@ -571,8 +791,10 @@
                             <div class="news-content">
                                 <a href="#">How to get the best loan?</a>
                                 <div class="news-meta">
-                                    <a href="#" class="post-author"><img src="img/core-img/pencil.png" alt=""> Jane Smith</a>
-                                    <a href="#" class="post-date"><img src="img/core-img/calendar.png" alt=""> April 26</a>
+                                    <a href="#" class="post-author"><img src="img/core-img/pencil.png" alt=""> Jane
+                                        Smith</a>
+                                    <a href="#" class="post-date"><img src="img/core-img/calendar.png" alt=""> April
+                                        26</a>
                                 </div>
                             </div>
                         </div>
@@ -585,8 +807,10 @@
                             <div class="news-content">
                                 <a href="#">A new way to get a loan</a>
                                 <div class="news-meta">
-                                    <a href="#" class="post-author"><img src="img/core-img/pencil.png" alt=""> Jane Smith</a>
-                                    <a href="#" class="post-date"><img src="img/core-img/calendar.png" alt=""> April 26</a>
+                                    <a href="#" class="post-author"><img src="img/core-img/pencil.png" alt=""> Jane
+                                        Smith</a>
+                                    <a href="#" class="post-date"><img src="img/core-img/calendar.png" alt=""> April
+                                        26</a>
                                 </div>
                             </div>
                         </div>
@@ -599,8 +823,10 @@
                             <div class="news-content">
                                 <a href="#">Finance you home</a>
                                 <div class="news-meta">
-                                    <a href="#" class="post-author"><img src="img/core-img/pencil.png" alt=""> Jane Smith</a>
-                                    <a href="#" class="post-date"><img src="img/core-img/calendar.png" alt=""> April 26</a>
+                                    <a href="#" class="post-author"><img src="img/core-img/pencil.png" alt=""> Jane
+                                        Smith</a>
+                                    <a href="#" class="post-date"><img src="img/core-img/calendar.png" alt=""> April
+                                        26</a>
                                 </div>
                             </div>
                         </div>
@@ -620,9 +846,13 @@
                             <a href="index.html" class="footer-logo"><img src="img/core-img/logo.png" alt=""></a>
 
                             <!-- Copywrite Text -->
-                            <p class="copywrite-text"><a href="#"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved by Blueprint Technologies
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                            <p class="copywrite-text"><a href="#">
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                    Copyright &copy;
+                                    <script>document.write(new Date().getFullYear());</script> All rights reserved by
+                                    Blueprint Technologies
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -645,119 +875,132 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
     <!-- #### Register Script Start #### -->
     <script>
-        $(async () => {
-                $.get("http://192.168.1.226:8051/api/getarticles", function (data) {
-                
-                    alert("hello");
-                    // alert(data[0]["id"]);
-                    // document.open();
-                    
-                    // for(var i = 1; i < data.length+1; i++) {
-                        
-                    // }
-                    // document.close();
-                });
+        // var jsonData = $.get("http://192.168.1.226:8051/api/getarticles", function(dataJSON){
 
 
-        });
+        //             alert(dataJSON[0]["articleData"]["autoGeneratedSummary"]);
+        //             alert()
+        //             console.log(dataJSON);
+
+
+        //             for(i=0;i<dataJSON.length;i++){
+        //                 card = document.createElement('div');
+        //                 card.classList.add("card");
+        //                 card.style.width="100%";
+
+        //                 cardHeader = document.createElement('div');
+        //                 cardHeader.classList.add("card-header");
+        //                 card.appendChild(cardHeader);
+
+        //                 cardDate = document.createTextNode(dataJSON[i]["timestamp"]);
+        //                 cardHeader.appendChild(cardDate);
+
+        //                 console.log(card);
+        //                 document.body.appendChild(card);
+        //             }
+
+        //         });
+
+
+
 
 
         function showError(message) {
-     
-         $("#error").remove();
-     
-         $('#errormsg-container').append("<label id='error'>"+message+"</label>");
-     
+
+            $("#error").remove();
+
+            $('#errormsg-container').append("<label id='error'>" + message + "</label>");
+
         }
-     
-     
-     
-     
+
+
+
+
         // myform.addEventListener('submit',function (event) {
-     
+
         //  event.preventDefault();
-     
+
         //  sendData();
-     
+
         // });
-     
-     
-        
-     
+
+
+
+
         async function registerAccount() {
-        
-        
-         var username = document.getElementById("register_username").value;
-     
-         var password = document.getElementById("register_password").value;
 
-         var confirm_password = document.getElementById("register_confirm_password").value;
 
-         var name = document.getElementById("register_name").value;
-     
-         var serviceURL = "http://127.0.0.1:5001/account/" + username
-     
-     
-         if (password == confirm_password) {
-    
-            // localStorage.email = customer.email;
-            try {
-     
-     const response =
+            var username = document.getElementById("register_username").value;
 
-     await fetch(
+            var password = document.getElementById("register_password").value;
 
-      serviceURL, {
+            var confirm_password = document.getElementById("register_confirm_password").value;
 
-       method: 'POST',
+            var name = document.getElementById("register_name").value;
 
-       headers: { "Content-Type": "application/json"},
+            var serviceURL = "http://127.0.0.1:5001/account/" + username
 
-       body: JSON.stringify({password:password, name:name})
 
-      }
+            if (password == confirm_password) {
 
-     );
+                // localStorage.email = customer.email;
+                try {
 
-     
+                    const response =
 
-     const data = await response.json();
+                        await fetch(
 
-     var customer = data;
-     location.reload();
-     alert("Account Registered!");
-     $('#registerModal').modal('hide');
-     
+                            serviceURL, {
+
+                            method: 'POST',
+
+                            headers: { "Content-Type": "application/json" },
+
+                            body: JSON.stringify({ password: password, name: name })
+
+                        }
+
+                        );
 
 
 
-     
-    } catch (error) {
+                    const data = await response.json();
 
-     showError('There is a problem retrieving customer data, please try again later.<br />'+error);
+                    var customer = data;
+                    location.reload();
+                    alert("Account Registered!");
+                    $('#registerModal').modal('hide');
 
-    } 
-    
+
+
+
+
+                } catch (error) {
+
+                    showError('There is a problem retrieving customer data, please try again later.<br />' + error);
+
+                }
+
 
             }
 
-        else {
+            else {
 
-            showError('Passwords do not match!');
+                showError('Passwords do not match!');
+
+            }
+            // window.location.replace('/index.html')
+            location.reload();
+            $('#registerModal').modal('hide');
+
+
+
+
+
 
         }
-        // window.location.replace('/index.html')
-    location.reload();
-    $('#registerModal').modal('hide');
-    
-     
-     
-     
-         
-     
-        }
-     
-       </script>
+
+    </script>
     <!-- #### Register Script End #### -->
 
 
@@ -768,97 +1011,97 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 
         function showError(message) {
-     
-         $("#error").remove();
-     
-         $('#errormsg-container').append("<label id='error'>"+message+"</label>");
-     
+
+            $("#error").remove();
+
+            $('#errormsg-container').append("<label id='error'>" + message + "</label>");
+
         }
-     
-     
-     
-     
+
+
+
+
         // myform.addEventListener('submit',function (event) {
-     
+
         //  event.preventDefault();
-     
+
         //  sendData();
-     
+
         // });
-     
-     
-        
-     
+
+
+
+
         async function loginAccount() {
-        
-    
-         var username = document.getElementById("login_username").value;
-     
-         var password = document.getElementById("login_password").value;
-
-     
-         var serviceURL = "http://127.0.0.1:5001/account/authenticate/" + username
-     
-     
-        
-        try {
-     
-        const response =
-
-        await fetch(
-
-        serviceURL, {
-
-        method: 'POST',
-
-        headers: { "Content-Type": "application/json"},
-
-        body: JSON.stringify({password:password})
-        
-
-      } 
-
-     );
-
-     
-
-    const data = await response.json();
-
-    var customer = data;
-
-    location.reload();
-    alert("Logged in!");
-    $('#loginModal').modal('hide');
-    sessionStorage.setItem("loggedin_user", username);  
-
-     
-    } catch (error) {
-
-     showError('There is a problem retrieving customer data, please try again later.<br />'+error);
-
-    } 
-    location.reload();
-    $('#loginModal').modal('hide');
-    sessionStorage.setItem("loggedin_user", username);
-    
 
 
-     
-     
-     
-     
-         
-     
+            var username = document.getElementById("login_username").value;
+
+            var password = document.getElementById("login_password").value;
+
+
+            var serviceURL = "http://127.0.0.1:5001/account/authenticate/" + username
+
+
+
+            try {
+
+                const response =
+
+                    await fetch(
+
+                        serviceURL, {
+
+                        method: 'POST',
+
+                        headers: { "Content-Type": "application/json" },
+
+                        body: JSON.stringify({ password: password })
+
+
+                    }
+
+                    );
+
+
+
+                const data = await response.json();
+
+                var customer = data;
+
+                location.reload();
+                alert("Logged in!");
+                $('#loginModal').modal('hide');
+                sessionStorage.setItem("loggedin_user", username);
+
+
+            } catch (error) {
+
+                showError('There is a problem retrieving customer data, please try again later.<br />' + error);
+
+            }
+            location.reload();
+            $('#loginModal').modal('hide');
+            sessionStorage.setItem("loggedin_user", username);
+
+
+
+
+
+
+
+
+
         }
-     
-       </script>
+
+    </script>
     <!-- #### Log In Script End #### -->
 
     <script>
         // alert(loggedin_user);
         loggedin_user = sessionStorage.getItem("loggedin_user");
-        
-        if(loggedin_user != null){
+
+        if (loggedin_user != null) {
 
             var loginbtn = document.getElementById('login_btn');
             loginbtn.style.display = "none";
@@ -866,7 +1109,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
             var registerbtn = document.getElementById('register_btn');
             registerbtn.style.display = "none";
 
-        }else{
+        } else {
             // alert(loggedin_user);
 
 
@@ -886,8 +1129,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 
     <script>
-        
-        
+
+
     </script>
 </body>
 

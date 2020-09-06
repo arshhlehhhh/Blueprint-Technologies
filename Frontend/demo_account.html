@@ -33,63 +33,66 @@
 
 
     <!--#### Register Modal Start ####-->
-    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Register Account</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
-            <div class="modal-body">
-                <input class="form-control" id="register_name" type="text" placeholder="Name"><br>
-                <input class="form-control" id="register_username" type="text" placeholder="Username"><br>
-                <input class="form-control" id="register_password" type="password" placeholder="Password"><br>
-                <input class="form-control" id="register_confirm_password" type="password" placeholder="Confirm Password">
-            </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" onclick="registerAccount()">Register</button>
-            </div>
-            </div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Register Account</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input class="form-control" id="register_name" type="text" placeholder="Name"><br>
+                    <input class="form-control" id="register_username" type="text" placeholder="Username"><br>
+                    <input class="form-control" id="register_password" type="password" placeholder="Password"><br>
+                    <input class="form-control" id="register_confirm_password" type="password"
+                        placeholder="Confirm Password">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="registerAccount()">Register</button>
+                </div>
             </div>
         </div>
     </div>
-<!--#### Register Modal End ####-->
+    </div>
+    <!--#### Register Modal End ####-->
 
-<!--#### Log In Modal Start ####-->
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-    <div class="modal-content">
-        <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Register Account</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        </div>
-        <div class="modal-body">
-            <input class="form-control" id="login_username" type="text" placeholder="Username"><br>
-            <input class="form-control" id="login_password" type="password" placeholder="Password"><br>
-        </div>
+    <!--#### Log In Modal Start ####-->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Register Account</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input class="form-control" id="login_username" type="text" placeholder="Username"><br>
+                    <input class="form-control" id="login_password" type="password" placeholder="Password"><br>
+                </div>
 
-        <script>
-            loggedin_user = sessionStorage.getItem("loggedin_user");
-            // alert(loggedin_user);
-        </script>
+                <script>
+                    loggedin_user = sessionStorage.getItem("loggedin_user");
+                    // alert(loggedin_user);
+                </script>
 
-        <div class="modal-footer">
-        
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onclick="loginAccount()">Log In</button>
+                <div class="modal-footer">
 
-        
-        </div>
-        </div>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="loginAccount()">Log In</button>
+
+
+                </div>
+            </div>
         </div>
     </div>
-</div>
-<!--#### Log In Modal End ####-->
+    </div>
+    <!--#### Log In Modal End ####-->
 
     <!-- Preloader -->
     <div class="preloader d-flex align-items-center justify-content-center">
@@ -111,13 +114,16 @@
                         <!-- Logo Area -->
                         <div class="logo">
                             <a href="index.html"><img src="img/core-img/logo.png" alt="" style="height:17%;"></a>
-                            
+
                         </div>
 
                         <!-- Top Contact Info -->
                         <div class="top-contact-info d-flex align-items-center">
-                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="25 th Street Avenue, Los Angeles, CA"><img src="img/core-img/placeholder.png" alt=""> <span>25 th Street Avenue, Los Angeles, CA</span></a>
-                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="office@yourfirm.com"><img src="img/core-img/message.png" alt=""> <span>office@yourfirm.com</span></a>
+                            <a href="#" data-toggle="tooltip" data-placement="bottom"
+                                title="25 th Street Avenue, Los Angeles, CA"><img src="img/core-img/placeholder.png"
+                                    alt=""> <span>25 th Street Avenue, Los Angeles, CA</span></a>
+                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="office@yourfirm.com"><img
+                                    src="img/core-img/message.png" alt=""> <span>office@yourfirm.com</span></a>
                         </div>
                     </div>
                 </div>
@@ -149,7 +155,6 @@
                                 <ul>
                                     <li><a href="index.html">Home</a></li>
                                     <li><a href="about.html">About Us</a></li>
-                                    
                                     <li><a href="decipher_news.html">Decipher News</a></li>
                                     <li><a href="demo_account.html">Demo Account</a></li>
                                     <li><a href="blog.html">Blog</a></li>
@@ -162,12 +167,16 @@
 
                         <!-- Contact -->
                         <div class="contact">
-                            <button id="login_btn" type="button" style="margin-top:15%;" class="btn btn-info" data-toggle="modal" data-target="#loginModal">Log In</button>
-                            <button id="register_btn" type="button" style="margin-top:15%;" class="btn btn-primary" data-toggle="modal" data-target="#registerModal">Register</button>
-                            
-    
-                            <button id="logout_btn" type="button" style="margin-top:4%;" class="btn btn-danger" onclick="logout()">Logout</button>
-                            <img id="profile_picture" src="img/core-img/profile_icon.png" style="width:7%;margin-top:4%;border-radius:50%;;" alt="Avatar">
+                            <button id="login_btn" type="button" style="margin-top:15%;" class="btn btn-info"
+                                data-toggle="modal" data-target="#loginModal">Log In</button>
+                            <button id="register_btn" type="button" style="margin-top:15%;" class="btn btn-primary"
+                                data-toggle="modal" data-target="#registerModal">Register</button>
+
+
+                            <button id="logout_btn" type="button" style="margin-top:4%;" class="btn btn-danger"
+                                onclick="logout()">Logout</button>
+                            <img id="profile_picture" src="img/core-img/profile_icon.png"
+                                style="width:7%;margin-top:4%;border-radius:50%;;" alt="Avatar">
                         </div>
                     </nav>
                 </div>
@@ -179,7 +188,7 @@
     <!-- ##### Breadcrumb Area Start ##### -->
     <section class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(img/bg-img/13.jpg);">
         <div class="container h-100" style="padding:0;">
-            <div class="row h-100 align-items-center" >
+            <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="breadcrumb-content">
                         <h2>Demo Account</h2>
@@ -196,62 +205,6 @@
     </section>
     <!-- ##### Breadcrumb Area End ##### -->
 
-    <!-- #### JSON DATA START #### -->
-
-    <script>
-        var jsonData = $.get("http://127.0.0.1:5003/DemoGame/startDemo/trevordino0", function(dataJSON){
-            
-            
-            alert("Success!");
-            $('#balance').append(dataJSON["demoUser"]["balance"]);
-
-            var element = '<input type="radio" name="group1" id="' + 'stockID' + '"> <label for="' + 'stockID' + '" id="" name="' + 'groupID' + '" hidden>'+ 'stockID'+ '</label><br>';
-            console.log(element);
-
-
-            console.log(dataJSON)
-            console.log(dataJSON['demoUser'])
-            console.log(dataJSON['stocks'])
-
-            google.charts.load("current", {packages:["corechart"]});
-                        google.charts.setOnLoadCallback(drawChart);
-                        function drawChart() {
-                          var data = google.visualization.arrayToDataTable([
-                            ['Category', 'Holdings'],
-                            ['Tech',     dataJSON["stocks"]["Tech"][0]["price"]],
-                            ['Financials',      2],
-                            ['Healthcare',  2],
-                            ['Financials', 2],
-                            ['FMCG', 3]
-                          ]);
-                  
-                          var options = {
-                            title: 'My Portfolio',
-                            pieHole: 0.4,
-                          };
-                  
-                          var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
-                          chart.draw(data, options);
-                        }
-
-            // alert(JSON.stringify(data["demoUser"]["balance"]));
-            
-            
-        })
-        // var result;
-        // var data;
-        // jsonData.then(result => result.data).then(data => populateData());
-        // // alert(jsonData["demoUser"]["balance"]);
-        // function populateData(){
-        //     alert(JSON.stringify(["demoUser"]["balance"]))
-        // }
-        
-        
-
-    
-
-    </script>
-    <!-- #### JSON DATA  END #### -->
 
     <!-- ##### Services Area Start ###### -->
     <section class="services-area section-padding-100-0">
@@ -272,65 +225,34 @@
                     <!-- Donut Chart -->
                     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
                     <script type="text/javascript">
-                        
-                        
-                
-                                            
-                        
 
-                                            
-                                        
+                    </script>
 
-                      </script>
-                    </head>
                     <body>
-                        
-                      <div id="donutchart" style="width: 400px; height: 230px;"></div> 
-                      <script>
-                        //   await(jsonData);
-                        //   alert("hello")
-                    //   console.log(jsonData);
-                      </script>
-                      <strong style="margin-left:5%;">Account Balance : $</strong><text id="balance"></text>
-                      
-                      <script>
-                
-                      </script>
+
+                        <div id="donutchart" style="width: 400px; height: 230px;">Loading...</div>
+                        <script>
+                            //   await(jsonData);
+                            //   alert("hello")
+                            //   console.log(jsonData);
+                        </script>
+                        <strong style="margin-left:5%;">Account Balance : $</strong><text id="balance"></text>
+
+                        <script>
+
+                        </script>
                 </div>
 
 
 
                 <div class="col-sm-8">
-                     <!-- Line Graph -->
-                     <script type="text/javascript">
-                        google.charts.load('current', {'packages':['corechart']});
-                        google.charts.setOnLoadCallback(drawChart);
+                    <!-- Line Graph -->
 
-                        function drawChart() {
-                            var data = google.visualization.arrayToDataTable([
-                            ['Year', 'DBS', 'OCBC'],
-                            ['2017',  1000, 400],
-                            ['2018',  1170, 460],
-                            ['2019',  660, 1120],
-                            ['2020',  1030, 540]
-                            ]);
 
-                            var options = {
-                            title: 'Company Performance',
-                            curveType: 'function',
-                            legend: { position: 'bottom' }
-                            };
-
-                            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-
-                            chart.draw(data, options);
-                        }
-                        </script>
-                    </head>
                     <body>
                         <div id="curve_chart" style="width:550 px; height: 250px"></div>
                     </body>
-                
+
                 </div>
             </div>
 
@@ -338,58 +260,39 @@
 
             <div class="row">
                 <!-- #### Column 1 #### -->
-                <div class="col-sm-4">
-                    <h3>Stocks</h3>
-                    <div style="height:200px;width:350px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
-                        <form action="/action_page.html">
-                            <fieldset id="group1">
-                                <!-- <input type="radio" id="1" value="Bike" name="group1" hidden>
-                                
-                                <input type="radio" id="vehicle2" value="Car" name="group1">
-                                <label for="vehicle2" name="group1"> OCBC</label><br>
-                                <input type="radio" id="vehicle3" value="Boat" name="group1">
-                                <label for="vehicle3" name="group1"> UOB</label><br><br> -->
-                            </fieldset>
-                        
-                        
+                <div class="col-12">
+                    <div class="row container-fluid">
+                        <h3>Stocks</h3>
                     </div>
-                            <br>
-                            <input type="submit" value="Show" style="width:20%;">
-                        </form>
-                </div>
-
-                <!-- #### Column 2 #### -->
-                <div class="col-sm-8">
-
-                    <form action="/action_page.html">
-                    <p>Please confirm your trades:</p>
-                    <div style="height:200px;width:650px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
-                        DBS  
-                        <input type="radio" id="male" name="gender" value="male" style="margin-left:10%;">
-                        <label for="male">Buy</label>
-                        <input type="radio" id="female" name="gender" value="female">
-                        <label for="female">Sell</label>
-                        <text style="margin-left:10%;">$24.75</text>
-                        <input type="text" id="dbs" placeholder="Quantity"style="width:25%; margin-left:20%;">
-                        <br>
-
+                    <div class="row container-fluid">
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th></th>
+                                    <th>Ticker</th>
+                                    <th>Name</th>
+                                    <th>Current Holdings</th>
+                                    <th>Price</th>
+                                    <th>Action</th>
+                                    <th>Quantity</th>
+                                </tr>
+                            </thead>
+                            <tbody id="stockInfo">
+                                <tr>
+                                    <td>Loading...</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-
-                    <br>
-                    <input type="submit" value="Submit" style="width:20%;">
-                    <br>
+                    <input type="submit" value="Show" style="width:20%;">
                     </form>
                 </div>
 
-
-
-
-
             </div>
 
-               
-    
-            
+
+
+
         </div>
     </section>
     <!-- ##### Services Area End ###### -->
@@ -405,7 +308,10 @@
                     <p>Bold desing and beyound</p>
                     <h2>Easy and Fast credits</h2>
                 </div>
-                <h6>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis egestas sem. Duis non volutpat arcu, eu mollis tellus. Sed finibus aliquam neque sit amet sod ales. Maecenas sed magna tempor, efficitur maur is in, sollicitudin augue. Praesent pretium finibus quam.</h6>
+                <h6>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis
+                    egestas sem. Duis non volutpat arcu, eu mollis tellus. Sed finibus aliquam neque sit amet sod ales.
+                    Maecenas sed magna tempor, efficitur maur is in, sollicitudin augue. Praesent pretium finibus quam.
+                </h6>
                 <a href="#" class="btn credit-btn btn-2 box-shadow">Read More</a>
             </div>
         </div>
@@ -427,7 +333,10 @@
                     <p>Bold desing and beyound</p>
                     <h2>$1000 non the spot</h2>
                 </div>
-                <h6>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis egestas sem. Duis non volutpat arcu, eu mollis tellus. Sed finibus aliquam neque sit amet sod ales. Maecenas sed magna tempor, efficitur maur is in, sollicitudin augue. Praesent pretium finibus quam.</h6>
+                <h6>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis
+                    egestas sem. Duis non volutpat arcu, eu mollis tellus. Sed finibus aliquam neque sit amet sod ales.
+                    Maecenas sed magna tempor, efficitur maur is in, sollicitudin augue. Praesent pretium finibus quam.
+                </h6>
                 <a href="#" class="btn credit-btn box-shadow">Read More</a>
             </div>
         </div>
@@ -444,36 +353,48 @@
                     <div class="accordions mb-100" id="accordion" role="tablist" aria-multiselectable="true">
                         <!-- single accordian area -->
                         <div class="panel single-accordion">
-                            <h6><a role="button" class="" aria-expanded="true" aria-controls="collapseOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Morbi ut dapibus dui. Sed ut iaculis elit, quis varius
+                            <h6><a role="button" class="" aria-expanded="true" aria-controls="collapseOne"
+                                    data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Morbi ut dapibus
+                                    dui. Sed ut iaculis elit, quis varius
                                     <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
                                     <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
-                                    </a></h6>
+                                </a></h6>
                             <div id="collapseOne" class="accordion-content collapse show">
-                                <p>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis egestas sem. Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis egestas sem. </p>
+                                <p>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies
+                                    orci, lobortis egestas sem. Morbi ut dapibus dui. Sed ut iaculis elit, quis varius
+                                    mauris. Integer ut ultricies orci, lobortis egestas sem. </p>
                             </div>
                         </div>
                         <!-- single accordian area -->
                         <div class="panel single-accordion">
                             <h6>
-                                <a role="button" class="collapsed" aria-expanded="true" aria-controls="collapseTwo" data-parent="#accordion" data-toggle="collapse" href="#collapseTwo">Ert dapibus dui. Sed ut iaculis elit, quis vgyu
-                                        <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
-                                        <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
-                                        </a>
+                                <a role="button" class="collapsed" aria-expanded="true" aria-controls="collapseTwo"
+                                    data-parent="#accordion" data-toggle="collapse" href="#collapseTwo">Ert dapibus dui.
+                                    Sed ut iaculis elit, quis vgyu
+                                    <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                    <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                                </a>
                             </h6>
                             <div id="collapseTwo" class="accordion-content collapse">
-                                <p>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis egestas sem. Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis egestas sem. </p>
+                                <p>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies
+                                    orci, lobortis egestas sem. Morbi ut dapibus dui. Sed ut iaculis elit, quis varius
+                                    mauris. Integer ut ultricies orci, lobortis egestas sem. </p>
                             </div>
                         </div>
                         <!-- single accordian area -->
                         <div class="panel single-accordion">
                             <h6>
-                                <a role="button" aria-expanded="true" aria-controls="collapseThree" class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseThree">Ert dapibus dui. Sed ut iaculis elit, quis vgyu
-                                        <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
-                                        <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
-                                    </a>
+                                <a role="button" aria-expanded="true" aria-controls="collapseThree" class="collapsed"
+                                    data-parent="#accordion" data-toggle="collapse" href="#collapseThree">Ert dapibus
+                                    dui. Sed ut iaculis elit, quis vgyu
+                                    <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                    <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                                </a>
                             </h6>
                             <div id="collapseThree" class="accordion-content collapse">
-                                <p>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis egestas sem. Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis egestas sem. </p>
+                                <p>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies
+                                    orci, lobortis egestas sem. Morbi ut dapibus dui. Sed ut iaculis elit, quis varius
+                                    mauris. Integer ut ultricies orci, lobortis egestas sem. </p>
                             </div>
                         </div>
                     </div>
@@ -491,7 +412,8 @@
     <!-- ##### FAQ Area End ###### -->
 
     <!-- ##### Newsletter Area Start ###### -->
-    <section class="newsletter-area section-padding-100 bg-img jarallax" style="background-image: url(img/bg-img/6.jpg);">
+    <section class="newsletter-area section-padding-100 bg-img jarallax"
+        style="background-image: url(img/bg-img/6.jpg);">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-sm-10 col-lg-8">
@@ -501,7 +423,8 @@
                             <input type="email" name="nl-email" id="nlemail" placeholder="Your e-mail">
                             <button type="submit">Subscribe</button>
                         </form>
-                        <p>Curabitur elit turpis, maximus quis ullamcorper sed, maximus eu neque. Cras ultrices erat nec auctor blandit.</p>
+                        <p>Curabitur elit turpis, maximus quis ullamcorper sed, maximus eu neque. Cras ultrices erat nec
+                            auctor blandit.</p>
                     </div>
                 </div>
             </div>
@@ -578,8 +501,10 @@
                             <div class="news-content">
                                 <a href="#">How to get the best loan?</a>
                                 <div class="news-meta">
-                                    <a href="#" class="post-author"><img src="img/core-img/pencil.png" alt=""> Jane Smith</a>
-                                    <a href="#" class="post-date"><img src="img/core-img/calendar.png" alt=""> April 26</a>
+                                    <a href="#" class="post-author"><img src="img/core-img/pencil.png" alt=""> Jane
+                                        Smith</a>
+                                    <a href="#" class="post-date"><img src="img/core-img/calendar.png" alt=""> April
+                                        26</a>
                                 </div>
                             </div>
                         </div>
@@ -592,8 +517,10 @@
                             <div class="news-content">
                                 <a href="#">A new way to get a loan</a>
                                 <div class="news-meta">
-                                    <a href="#" class="post-author"><img src="img/core-img/pencil.png" alt=""> Jane Smith</a>
-                                    <a href="#" class="post-date"><img src="img/core-img/calendar.png" alt=""> April 26</a>
+                                    <a href="#" class="post-author"><img src="img/core-img/pencil.png" alt=""> Jane
+                                        Smith</a>
+                                    <a href="#" class="post-date"><img src="img/core-img/calendar.png" alt=""> April
+                                        26</a>
                                 </div>
                             </div>
                         </div>
@@ -606,8 +533,10 @@
                             <div class="news-content">
                                 <a href="#">Finance you home</a>
                                 <div class="news-meta">
-                                    <a href="#" class="post-author"><img src="img/core-img/pencil.png" alt=""> Jane Smith</a>
-                                    <a href="#" class="post-date"><img src="img/core-img/calendar.png" alt=""> April 26</a>
+                                    <a href="#" class="post-author"><img src="img/core-img/pencil.png" alt=""> Jane
+                                        Smith</a>
+                                    <a href="#" class="post-date"><img src="img/core-img/calendar.png" alt=""> April
+                                        26</a>
                                 </div>
                             </div>
                         </div>
@@ -627,9 +556,13 @@
                             <a href="index.html" class="footer-logo"><img src="img/core-img/logo.png" alt=""></a>
 
                             <!-- Copywrite Text -->
-                            <p class="copywrite-text"><a href="#"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved by Blueprint Technologies
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                            <p class="copywrite-text"><a href="#">
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                    Copyright &copy;<script>
+                                        document.write(new Date().getFullYear());
+                                    </script> All rights reserved by Blueprint Technologies
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -652,97 +585,197 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
     <!-- #### Register Script Start #### -->
     <script>
+        var globalJson;
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawGraph);
 
+        function drawGraph() {
+            var data = google.visualization.arrayToDataTable([
+                ['Quarter', '-'],
+                ['', 0]
+            ]);
 
-        function showError(message) {
-     
-         $("#error").remove();
-     
-         $('#errormsg-container').append("<label id='error'>"+message+"</label>");
-     
+            var options = {
+                title: 'Historical Price',
+                curveType: 'function',
+                legend: {
+                    position: 'bottom'
+                }
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+            chart.draw(data, options);
         }
-     
-     
-     
 
-     
-     
-        
-     
-        async function registerAccount() {
-        
-        
-         var username = document.getElementById("register_username").value;
-     
-         var password = document.getElementById("register_password").value;
+        function toggleGraph(ticker) {
+            var data = google.visualization.arrayToDataTable([
+                ['Quarter', ticker]
+            ]);
+            var endDate = globalJson["demoDetails"]["endDate"]
+            var url = "http://localhost:5004/stocks/retrieveQuarter/" + ticker + "/" + endDate;
+            $.get(url, function (data) {
+                alert("Data Loaded: " + data);
+            });
 
-         var confirm_password = document.getElementById("register_confirm_password").value;
+            var options = {
+                title: 'Historical Price',
+                curveType: 'function',
+                legend: {
+                    position: 'bottom'
+                }
+            };
 
-         var name = document.getElementById("register_name").value;
-     
-         var serviceURL = "http://127.0.0.1:5001/account/" + username
-     
-     
-         if (password == confirm_password) {
-    
-            // localStorage.email = customer.email;
-            try {
-     
-     const response =
+            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
 
-     await fetch(
-
-      serviceURL, {
-
-       method: 'POST',
-
-       headers: { "Content-Type": "application/json"},
-
-       body: JSON.stringify({password:password, name:name})
-
-      }
-
-     );
-
-     
-
-     const data = await response.json();
-
-     var customer = data;
-     location.reload();
-     alert("Account Registered!");
-     $('#registerModal').modal('hide');
-     
+            chart.draw(data, options);
+        }
 
 
 
-     
-    } catch (error) {
+        var jsonData = $.get("http://127.0.0.1:5003/DemoGame/startDemo/trevordino", function (dataJSON) {
+            alert("Data Loaded Successfully!");
+            $('#balance').append(dataJSON["demoUser"]["balance"]);
+            globalJson = dataJSON;
+            var holdingsDict = {}
+            var holdingsArray = dataJSON["demoUser"]["holding"].split(";")
+            console.log(dataJSON["demoUser"]["holding"])
+            holdingsArray.forEach(function (item, index) {
+                var eachHolding = item.split(":")
 
-     showError('There is a problem retrieving customer data, please try again later.<br />'+error);
+                holdingsDict[eachHolding[0]] = eachHolding[1]
+            });
+            console.log(holdingsDict)
+            var stockChoices = "";
+            var stocksJson = dataJSON['stocks'];
+            Object.keys(stocksJson).forEach(function (key) {
+                for (i = 0; i < stocksJson[key].length; i++) {
+                    var currText = "<tr><td><input type='radio' onClick=toggleGraph('" + stocksJson[key]
+                        [i]['ticker'] + "') name='chartToggle'></td>"
+                    currText += "<td>" + stocksJson[key][i]['ticker'] + "</td>"
+                    currText += "<td>" + key + ": " + stocksJson[key][i]['name'] + "</td>"
+                    if (stocksJson[key][i]['ticker'] in holdingsDict) {
+                        currText += "<td>" + holdingsDict[stocksJson[key][i]['ticker']] + "</td>"
+                    } else {
+                        currText += "<td>0</td>"
+                    }
 
-    } 
-    
+                    currText += "<td>" + stocksJson[key][i]['price'] + "</td>"
+                    currText += "<td><input type='checkbox' id='buy' name='buy' value='" + stocksJson[
+                            key][i]['ticker'] +
+                        "buy'><label for='buy'> Buy<input type='checkbox' id='sell' name='sell' value='" +
+                        stocksJson[key][i]['ticker'] + "sell'><label for='sell'> Sell</td>"
+                    currText += "<td><input type='text'></input></td></tr>"
+                    stockChoices += currText
+                }
+            })
+            $('#stockInfo').html($.parseHTML(stockChoices))
 
+            function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+                    ['Category', 'Holdings'],
+                    ['Tech', dataJSON["stocks"]["Tech"][0]["price"]],
+                    ['Financials', 2],
+                    ['Healthcare', 2],
+                    ['Financials', 2],
+                    ['FMCG', 3]
+                ]);
+
+                var options = {
+                    title: 'My Portfolio',
+                    pieHole: 0.4,
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+                chart.draw(data, options);
             }
 
-        else {
 
-            showError('Passwords do not match!');
+            google.charts.setOnLoadCallback(drawChart);
+
+
+        })
+
+        function showError(message) {
+
+            $("#error").remove();
+
+            $('#errormsg-container').append("<label id='error'>" + message + "</label>");
 
         }
-        // window.location.replace('/index.html')
-    location.reload();
-    $('#registerModal').modal('hide');
-    
-     
-     
-     
-         
-     
+
+
+        async function registerAccount() {
+
+
+            var username = document.getElementById("register_username").value;
+
+            var password = document.getElementById("register_password").value;
+
+            var confirm_password = document.getElementById("register_confirm_password").value;
+
+            var name = document.getElementById("register_name").value;
+
+            var serviceURL = "http://127.0.0.1:5001/account/" + username
+
+
+            if (password == confirm_password) {
+
+                // localStorage.email = customer.email;
+                try {
+
+                    const response =
+
+                        await fetch(
+
+                            serviceURL, {
+
+                                method: 'POST',
+
+                                headers: {
+                                    "Content-Type": "application/json"
+                                },
+
+                                body: JSON.stringify({
+                                    password: password,
+                                    name: name
+                                })
+
+                            }
+
+                        );
+
+                    const data = await response.json();
+
+                    var customer = data;
+                    location.reload();
+                    alert("Account Registered!");
+                    $('#registerModal').modal('hide');
+
+
+
+
+
+                } catch (error) {
+
+                    showError('There is a problem retrieving customer data, please try again later.<br />' + error);
+
+                }
+
+
+            } else {
+
+                showError('Passwords do not match!');
+
+            }
+            // window.location.replace('/index.html')
+            location.reload();
+            $('#registerModal').modal('hide');
+
         }
-     
-       </script>
+    </script>
     <!-- #### Register Script End #### -->
 
 
@@ -750,94 +783,87 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
     <!-- #### Log In Script Start #### -->
     <script>
-
-
         function showError(message) {
-     
-         $("#error").remove();
-     
-         $('#errormsg-container').append("<label id='error'>"+message+"</label>");
-     
+
+            $("#error").remove();
+
+            $('#errormsg-container').append("<label id='error'>" + message + "</label>");
+
         }
-     
-     
-     
-     
-      
-     
-     
-        
-     
+
         async function loginAccount() {
-        
-    
-         var username = document.getElementById("login_username").value;
-     
-         var password = document.getElementById("login_password").value;
-
-     
-         var serviceURL = "http://127.0.0.1:5001/account/authenticate/" + username
-     
-     
-        
-        try {
-     
-        const response =
-
-        await fetch(
-
-        serviceURL, {
-
-        method: 'POST',
-
-        headers: { "Content-Type": "application/json"},
-
-        body: JSON.stringify({password:password})
-        
-
-      } 
-
-     );
-
-     
-
-    const data = await response.json();
-
-    var customer = data;
-
-    location.reload();
-    alert("Logged in!");
-    $('#loginModal').modal('hide');
-    sessionStorage.setItem("loggedin_user", username);  
-
-     
-    } catch (error) {
-
-     showError('There is a problem retrieving customer data, please try again later.<br />'+error);
-
-    } 
-    location.reload();
-    $('#loginModal').modal('hide');
-    sessionStorage.setItem("loggedin_user", username);
-    
 
 
-     
-     
-     
-     
-         
-     
+            var username = document.getElementById("login_username").value;
+
+            var password = document.getElementById("login_password").value;
+
+
+            var serviceURL = "http://127.0.0.1:5001/account/authenticate/" + username
+
+
+
+            try {
+
+                const response =
+
+                    await fetch(
+
+                        serviceURL, {
+
+                            method: 'POST',
+
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+
+                            body: JSON.stringify({
+                                password: password
+                            })
+
+
+                        }
+
+                    );
+
+
+
+                const data = await response.json();
+
+                var customer = data;
+
+                location.reload();
+                alert("Logged in!");
+                $('#loginModal').modal('hide');
+                sessionStorage.setItem("loggedin_user", username);
+
+
+            } catch (error) {
+
+                showError('There is a problem retrieving customer data, please try again later.<br />' + error);
+
+            }
+            location.reload();
+            $('#loginModal').modal('hide');
+            sessionStorage.setItem("loggedin_user", username);
+
+
+
+
+
+
+
+
+
         }
-     
-       </script>
+    </script>
     <!-- #### Log In Script End #### -->
 
     <script>
         // alert(loggedin_user);
         loggedin_user = sessionStorage.getItem("loggedin_user");
-        
-        if(loggedin_user != null){
+
+        if (loggedin_user != null) {
 
             var loginbtn = document.getElementById('login_btn');
             loginbtn.style.display = "none";
@@ -845,7 +871,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
             var registerbtn = document.getElementById('register_btn');
             registerbtn.style.display = "none";
 
-        }else{
+        } else {
             // alert(loggedin_user);
 
 
