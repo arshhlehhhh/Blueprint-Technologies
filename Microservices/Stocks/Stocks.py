@@ -1,12 +1,14 @@
 import json
 import sys
 import os
+import calendar
+import requests
 
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS, cross_origin
 from sqlalchemy.exc import StatementError
-from datetime import datetime
+from datetime import datetime, timedelta
 
 
 app = Flask(__name__)
@@ -56,6 +58,36 @@ def get_by_date(date):
         return jsonify( {"message": "There are no sales on this day."} )
     
     # return jsonify( { "Stocks": [stocks.json() for stocks in Stocks.query.filter_by(date <= data['endDate'], date >= data['startDate'])] })
+
+@app.route("/stocks/retrieveQuarter/<string:ticker>/<string:date>")
+def get_quarter_result(ticker, date):
+
+    key = "5bb3877196dfdde3adf163bd15ea59ee"
+
+    datettime_obj = datetime.strptime(date, '%d-%b-%y')
+    endDate = str(datettime_obj.date())
+    
+    days_in_month = calendar.monthrange(datettime_obj.year, datettime_obj.month)[1]
+    newDate = datettime_obj - (timedelta(days=days_in_month) * 3)
+    startDate = str(newDate.date())
+
+    serviceURL = "https://financialmodelingprep.com/api/v3/historical-price-full/" + ticker + "?" + "apikey=" + key + "&from=" + startDate + "&" + "to=" + endDate
+    print("API Call: " + serviceURL)
+   
+    try:
+        response = requests.get(serviceURL)
+        jsonPayLoad = response.json()
+        histList = jsonPayLoad["historical"][::-1]
+        histDict = {}
+        for element in histList:
+            histDict[element['date']] = element['close']
+        return jsonify( histDict ), 200
+    except:
+        return jsonify( { "message": "unexpected error pulling historical data from API." } ),500
+
+@app.route("/stocks/retrieveTickerStatistics/<string:ticker>")
+def get_ticker_stats(ticker):
+    return "Hello"
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5004, debug=True)

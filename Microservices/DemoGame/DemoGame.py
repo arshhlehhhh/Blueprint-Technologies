@@ -101,11 +101,6 @@ def sort_stocks_to_categories(response):
         else:
             categories[i["category"]] = [{"date": i["date"], "ticker": i["ticker"], "name": i["name"], "price": i["price"]}]
     return categories
-
-@app.route("/DemoGame/testDemo")
-def testDemo():
-
-    return 201
     
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5003, debug=True)
