@@ -26,6 +26,12 @@
 
 <body>
 
+    <!-- #### GRAB JSON DATA START #### -->
+
+
+    <!-- #### GRAB JSON DATA START #### -->
+
+
     <!--#### Register Modal Start ####-->
     <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -191,24 +197,57 @@
     <!-- ##### Breadcrumb Area End ##### -->
 
     <!-- #### JSON DATA START #### -->
-    <script>
-//         function readTextFile(file, callback) {
-//             var rawFile = new XMLHttpRequest();
-//             rawFile.overrideMimeType("application/json");
-//             rawFile.open("GET", file, true);
-//             rawFile.onreadystatechange = function() {
-//                 if (rawFile.readyState === 4 && rawFile.status == "200") {
-//                     callback(rawFile.responseText);
-//         }
-//     }
-//     rawFile.send(null);
-// }
 
-//         readTextFile("data.json", function(text){
-//         var data = JSON.parse(text);
-//         console.log(data);
-// });
-    var json = '{"name": "Harry", "age": 18, "country": "United Kingdom"}';
+    <script>
+        var jsonData = $.get("http://127.0.0.1:5003/DemoGame/startDemo/trevordino0", function(dataJSON){
+            
+            
+            alert("Success!");
+            $('#balance').append(dataJSON["demoUser"]["balance"]);
+
+            var element = '<input type="radio" name="group1" id="' + 'stockID' + '"> <label for="' + 'stockID' + '" id="" name="' + 'groupID' + '" hidden>'+ 'stockID'+ '</label><br>';
+            console.log(element);
+
+
+            console.log(dataJSON)
+            console.log(dataJSON['demoUser'])
+            console.log(dataJSON['stocks'])
+
+            google.charts.load("current", {packages:["corechart"]});
+                        google.charts.setOnLoadCallback(drawChart);
+                        function drawChart() {
+                          var data = google.visualization.arrayToDataTable([
+                            ['Category', 'Holdings'],
+                            ['Tech',     dataJSON["stocks"]["Tech"][0]["price"]],
+                            ['Financials',      2],
+                            ['Healthcare',  2],
+                            ['Financials', 2],
+                            ['FMCG', 3]
+                          ]);
+                  
+                          var options = {
+                            title: 'My Portfolio',
+                            pieHole: 0.4,
+                          };
+                  
+                          var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+                          chart.draw(data, options);
+                        }
+
+            // alert(JSON.stringify(data["demoUser"]["balance"]));
+            
+            
+        })
+        // var result;
+        // var data;
+        // jsonData.then(result => result.data).then(data => populateData());
+        // // alert(jsonData["demoUser"]["balance"]);
+        // function populateData(){
+        //     alert(JSON.stringify(["demoUser"]["balance"]))
+        // }
+        
+        
+
     
 
     </script>
@@ -233,31 +272,33 @@
                     <!-- Donut Chart -->
                     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
                     <script type="text/javascript">
-                        google.charts.load("current", {packages:["corechart"]});
-                        google.charts.setOnLoadCallback(drawChart);
-                        function drawChart() {
-                          var data = google.visualization.arrayToDataTable([
-                            ['Task', 'Hours per Day'],
-                            ['Cash',     11],
-                            ['Healthcare',      2],
-                            ['Energy',  2],
-                            ['Financials', 2],
-                            ['Gold',    7]
-                          ]);
-                  
-                          var options = {
-                            title: 'My Daily Activities',
-                            pieHole: 0.4,
-                          };
-                  
-                          var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
-                          chart.draw(data, options);
-                        }
+                        
+                        
+                
+                                            
+                        
+
+                                            
+                                        
+
                       </script>
                     </head>
                     <body>
-                      <div id="donutchart" style="width: 400px; height: 230px;"></div>  
+                        
+                      <div id="donutchart" style="width: 400px; height: 230px;"></div> 
+                      <script>
+                        //   await(jsonData);
+                        //   alert("hello")
+                    //   console.log(jsonData);
+                      </script>
+                      <strong style="margin-left:5%;">Account Balance : $</strong><text id="balance"></text>
+                      
+                      <script>
+                
+                      </script>
                 </div>
+
+
 
                 <div class="col-sm-8">
                      <!-- Line Graph -->
@@ -301,12 +342,15 @@
                     <h3>Stocks</h3>
                     <div style="height:200px;width:350px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
                         <form action="/action_page.html">
-                        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                        <label for="vehicle1"> DBS</label><br>
-                        <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-                        <label for="vehicle2"> OCBC</label><br>
-                        <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-                        <label for="vehicle3"> UOB</label><br><br>
+                            <fieldset id="group1">
+                                <!-- <input type="radio" id="1" value="Bike" name="group1" hidden>
+                                
+                                <input type="radio" id="vehicle2" value="Car" name="group1">
+                                <label for="vehicle2" name="group1"> OCBC</label><br>
+                                <input type="radio" id="vehicle3" value="Boat" name="group1">
+                                <label for="vehicle3" name="group1"> UOB</label><br><br> -->
+                            </fieldset>
+                        
                         
                     </div>
                             <br>
