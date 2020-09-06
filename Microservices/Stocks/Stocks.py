@@ -57,8 +57,6 @@ def get_by_date(date):
     except:
         return jsonify( {"message": "There are no sales on this day."} )
     
-    # return jsonify( { "Stocks": [stocks.json() for stocks in Stocks.query.filter_by(date <= data['endDate'], date >= data['startDate'])] })
-
 @app.route("/stocks/retrieveQuarter/<string:ticker>/<string:date>")
 def get_quarter_result(ticker, date):
 

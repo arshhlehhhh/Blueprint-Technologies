@@ -58,12 +58,14 @@ def get_scenerio_w_price(scenerio_id):
         endDate = demoGame[0]['endDate']
         message = demoGame[0]['message']
 
-        
-        serviceUrl = "http://localhost:5004/stocks/retrieveByDate/" +startDate
+        try:
+            serviceUrl = "http://localhost:5004/stocks/retrieveByDate/" +startDate
 
-        response = requests.get(serviceUrl)
-        output = jsonify( { "scenario_details": demoGame[0], "stocks": response.json()["Stocks"]} )
-        return output
+            response = requests.get(serviceUrl)
+            output = jsonify( { "scenario_details": demoGame[0], "stocks": response.json()["Stocks"]} )
+            return output
+        except:
+            return jsonify( {"message": "Stocks retrival issue."} ), 500
 
     return jsonify({"message": "Scenerio ID is invalid."}), 500
 
@@ -84,12 +86,15 @@ def start_demo(user_id):
     
     output = (get_scenerio_w_price(currentScenerio)).json
 
-    #process the stocks
-    stocks = sort_stocks_to_categories(output["stocks"])
+    if ("stocks" in output.keys):
+        #process the stocks
+        stocks = sort_stocks_to_categories(output["stocks"])
 
-    #concate the output with accountDemo and send back
+        #concate the output with accountDemo and send back
 
-    return jsonify( { "demoUser": accountDemo[0], "demoDetails": output["scenario_details"], "stocks": stocks} ), 200
+        return jsonify( { "demoUser": accountDemo[0], "demoDetails": output["scenario_details"], "stocks": stocks} ), 200
+    else:
+        return jsonify( {"message": "Internal Server Error. There is an issue when running this request."} ),500
 
 def sort_stocks_to_categories(response):
 
