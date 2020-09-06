@@ -1,6 +1,6 @@
-START C:\wamp64\www\BlueprintTechnologies\Microservices\Stocks\Stocks.py
-START C:\wamp64\www\BlueprintTechnologies\Microservices\InsightService\manage.py
-START C:\wamp64\www\BlueprintTechnologies\Microservices\GlossaryService\manage.py
-START C:\wamp64\www\BlueprintTechnologies\Microservices\DemoGame\DemoGame.py
-START C:\wamp64\www\BlueprintTechnologies\Microservices\AccountDemo\AccountDemo.py
-START C:\wamp64\www\BlueprintTechnologies\Microservices\Account\Account.py
+START ..\Microservices\Stocks\Stocks.py
+START ..\Microservices\InsightService\manage.py
+START ..\Microservices\GlossaryService\manage.py
+START ..\Microservices\DemoGame\DemoGame.py
+START ..\Microservices\AccountDemo\AccountDemo.py
+START ..\Microservices\Account\Account.py
