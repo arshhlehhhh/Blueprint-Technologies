@@ -207,12 +207,12 @@
 
 
     <!-- ##### Services Area Start ###### -->
-    <section class="services-area section-padding-100-0">
+    <section class="services-area">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <!-- Section Heading -->
-                    <div class="section-heading text-center mb-100">
+                    <div class="section-heading text-center">
                         <div class="line"></div>
                         <p>The key to</p>
                         <h2>Investing</h2>
@@ -224,23 +224,7 @@
                 <div class="col-sm-4">
                     <!-- Donut Chart -->
                     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-                    <script type="text/javascript">
-
-                    </script>
-
-                    <body>
-
                         <div id="donutchart" style="width: 400px; height: 230px;">Loading...</div>
-                        <script>
-                            //   await(jsonData);
-                            //   alert("hello")
-                            //   console.log(jsonData);
-                        </script>
-                        <strong style="margin-left:5%;">Account Balance : $</strong><text id="balance"></text>
-
-                        <script>
-
-                        </script>
                 </div>
 
 
@@ -263,6 +247,7 @@
                 <div class="col-12">
                     <div class="row container-fluid">
                         <h3>Stocks</h3>
+                        <strong class="ml-auto my-auto text-bottom">Account Balance : $</strong><text class="my-auto" id="balance"></text>
                     </div>
                     <div class="row container-fluid">
                         <table class="table">
@@ -611,34 +596,44 @@
         }
 
         function toggleGraph(ticker) {
-            var data = google.visualization.arrayToDataTable([
-                ['Quarter', ticker]
-            ]);
-            var endDate = globalJson["demoDetails"]["endDate"]
-            var url = "http://localhost:5004/stocks/retrieveQuarter/" + ticker + "/" + endDate;
-            $.get(url, function (data) {
-                alert("Data Loaded: " + data);
-            });
-
             var options = {
                 title: 'Historical Price',
+                vAxis: {
+                    format: 'decimal'
+                },
                 curveType: 'function',
                 legend: {
                     position: 'bottom'
                 }
             };
-
+            var chartdata = new google.visualization.DataTable();
+            chartdata.addColumn('string', 'Quarter');
+            chartdata.addColumn('number', ticker);
+            // var chartdata = google.visualization.arrayToDataTable([
+            //     ['Quarter', ticker]
+            // ]);
+            var endDate = globalJson["demoDetails"]["endDate"]
+            var url = "http://localhost:5004/stocks/retrieveQuarter/" + ticker + "/" + endDate;
             var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+            $.get(url, function (data) {
+                Object.keys(data).forEach(function (key) {
+                    chartdata.addRow([key, data[key]]);
+                });
 
-            chart.draw(data, options);
+
+                chart.draw(chartdata, options);
+            });
         }
 
 
-
-        var jsonData = $.get("http://127.0.0.1:5003/DemoGame/startDemo/trevordino", function (dataJSON) {
+        var user = sessionStorage.getItem("loggedin_user")
+        var acctUrl = "http://127.0.0.1:5003/DemoGame/startDemo/" + user
+        var jsonData = $.get(acctUrl, function (dataJSON) {
             alert("Data Loaded Successfully!");
             $('#balance').append(dataJSON["demoUser"]["balance"]);
             globalJson = dataJSON;
+            var holdingsByCat = {}
+            var sumOfHoldings = 0;
             var holdingsDict = {}
             var holdingsArray = dataJSON["demoUser"]["holding"].split(";")
             console.log(dataJSON["demoUser"]["holding"])
@@ -658,6 +653,15 @@
                     currText += "<td>" + key + ": " + stocksJson[key][i]['name'] + "</td>"
                     if (stocksJson[key][i]['ticker'] in holdingsDict) {
                         currText += "<td>" + holdingsDict[stocksJson[key][i]['ticker']] + "</td>"
+                        if (stocksJson[key][i]['ticker'] in holdingsByCat) {
+                            holdingsByCat[key] += holdingsDict[stocksJson[key][i]['ticker']] *
+                                stocksJson[key][i]['price']
+                        } else {
+                            holdingsByCat[key] = holdingsDict[stocksJson[key][i]['ticker']] *
+                                stocksJson[key][i]['price']
+                        }
+                        sumOfHoldings += holdingsDict[stocksJson[key][i]['ticker']] * stocksJson[key][i]
+                            ['price']
                     } else {
                         currText += "<td>0</td>"
                     }
@@ -673,15 +677,18 @@
             })
             $('#stockInfo').html($.parseHTML(stockChoices))
 
+            console.log(holdingsByCat)
+            var cashOnHand = dataJSON["demoUser"]["balance"] - sumOfHoldings
+            var chartDataTable = [
+                ['Category', 'Holdings']
+            ]
+            Object.keys(holdingsByCat).forEach(function (key) {
+                chartDataTable.push([key, holdingsByCat[key]])
+            });
+            chartDataTable.push(['Cash', cashOnHand])
+
             function drawChart() {
-                var data = google.visualization.arrayToDataTable([
-                    ['Category', 'Holdings'],
-                    ['Tech', dataJSON["stocks"]["Tech"][0]["price"]],
-                    ['Financials', 2],
-                    ['Healthcare', 2],
-                    ['Financials', 2],
-                    ['FMCG', 3]
-                ]);
+                var data = google.visualization.arrayToDataTable(chartDataTable);
 
                 var options = {
                     title: 'My Portfolio',
