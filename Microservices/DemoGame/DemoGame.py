@@ -86,7 +86,7 @@ def start_demo(user_id):
     
     output = (get_scenerio_w_price(currentScenerio)).json
 
-    if ("stocks" in output.keys):
+    if ("stocks" in output.keys()):
         #process the stocks
         stocks = sort_stocks_to_categories(output["stocks"])
 
