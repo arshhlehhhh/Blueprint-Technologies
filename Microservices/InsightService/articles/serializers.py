@@ -7,5 +7,6 @@ class ArticlesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Articles
         fields = ('id',
-                  'articleFileName',
-                  'datetime')
+                  'distinctID',
+                  'articleData',
+                  'timestamp',)
