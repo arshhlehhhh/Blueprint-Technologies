@@ -1,4 +1,3 @@
-
 START ..\Microservices\InsightService\manage.py
 START ..\Microservices\GlossaryService\manage.py
 START ..\Microservices\DemoGame\DemoGame.py

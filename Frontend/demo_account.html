@@ -627,7 +627,7 @@
 
 
         var user = sessionStorage.getItem("loggedin_user")
-        var acctUrl = "http://127.0.0.1:5003/DemoGame/startDemo/" + user
+        var acctUrl = "http://107.21.167.79:5003/DemoGame/startDemo/" + user
         var jsonData = $.get(acctUrl, function (dataJSON) {
             alert("Data Loaded Successfully!");
             $('#balance').append(dataJSON["demoUser"]["balance"]);
@@ -725,7 +725,7 @@
 
             var name = document.getElementById("register_name").value;
 
-            var serviceURL = "http://127.0.0.1:5001/account/" + username
+            var serviceURL = "http://107.21.167.79:5001/account/" + username
 
 
             if (password == confirm_password) {
@@ -806,7 +806,7 @@
             var password = document.getElementById("login_password").value;
 
 
-            var serviceURL = "http://127.0.0.1:5001/account/authenticate/" + username
+            var serviceURL = "http://107.21.167.79:5001/account/authenticate/" + username
 
 
 
