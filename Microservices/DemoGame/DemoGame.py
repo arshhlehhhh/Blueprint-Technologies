@@ -59,7 +59,7 @@ def get_scenerio_w_price(scenerio_id):
         message = demoGame[0]['message']
 
         
-        serviceUrl = "http://0.0.0.0:5004/stocks/retrieveByDate/" +startDate
+        serviceUrl = "http://localhost:5004/stocks/retrieveByDate/" +startDate
 
         response = requests.get(serviceUrl)
         output = jsonify( { "scenario_details": demoGame[0], "stocks": response.json()["Stocks"]} )
@@ -72,7 +72,7 @@ def start_demo(user_id):
 
     # Check user id if scenerio exists
     print("User ID = " + user_id)
-    serviceURL = "http://0.0.0.0:5002/accountdemo/get_user_scenerio/" + user_id
+    serviceURL = "http://localhost:5002/accountdemo/get_user_scenerio/" + user_id
 
     response = requests.get(serviceURL).json()
     currentScenerio = 1
