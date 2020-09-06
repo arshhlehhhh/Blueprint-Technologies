@@ -48,7 +48,20 @@ def get_all():
 
 @app.route("/stocks/retrieveByCategory/<string:category>")
 def get_by_category(category):
-    return jsonify( { "Stocks": [stocks.json() for stocks in Stocks.query.filter_by(category=category)] })
+    try:
+        jsonPayLoad = jsonify( { "Stocks": [stocks.json() for stocks in Stocks.query.filter_by(category=category)] })
+
+        print(jsonPayLoad.json)
+        finalDict = {}
+        
+        for element in jsonPayLoad.json["Stocks"]:
+            #ticker, name
+            if (element["ticker"] not in finalDict.keys()):
+                finalDict[element["ticker"]] = {"name": element["name"]}
+
+        return jsonify(finalDict)
+    except:
+        return jsonify( {"message": "Category does not exist"} )
 
 @app.route("/stocks/retrieveByDate/<string:date>")
 def get_by_date(date):
