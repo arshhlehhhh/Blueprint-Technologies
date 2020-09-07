@@ -264,7 +264,7 @@
                         <thead>
                             <tr>
                                 <th scope="col">Select Primary Stock</th>
-                                <th scope="col">Key</th>
+                                <th scope="col">Ticker</th>
                             </tr>
 
 
@@ -278,7 +278,7 @@
                         primaryStock = null;
                         secondaryStocks = [];
                         primaryStockMetrics = [];
-                        secondaryStockMetrics =[];
+                        secondaryStockMetrics = null;
                         totalStockMetrics = null;
                         string = null;
                         temp = [];
@@ -290,7 +290,7 @@
                             var jsonData = $.get("http://107.21.167.79:5004/stocks/retrieveByCategory/Tech", function (dataJSON) {
                                 dataset = dataJSON;
                                 // console.log(dataJSON);
-                                element = "<tr><th scope='col'>Select Primary Stock</th><th scope='col'>Key</th></tr>";
+                                element = "<tr><th scope='col'>Select Primary Stock</th><th scope='col'>Ticker</th></tr>";
                                 for (var key in dataJSON) {
                                     element += "<tr>";
                                     element += "<td>";
@@ -310,7 +310,7 @@
                             var jsonData = $.get("http://107.21.167.79:5004/stocks/retrieveByCategory/FMCG", function (dataJSON) {
                                 dataset = dataJSON;
                                 // console.log(dataJSON);
-                                element = "<tr><th scope='col'>Select Secondary Stock</th><th scope='col'>Key</th></tr>";
+                                element = "<tr><th scope='col'>Select Secondary Stock</th><th scope='col'>Ticker</th></tr>";
                                 for (var key in dataJSON) {
                                     element += "<tr>";
                                     element += "<td>";
@@ -330,7 +330,7 @@
                             var jsonData = $.get("http://107.21.167.79:5004/stocks/retrieveByCategory/Healthcare", function (dataJSON) {
                                 dataset = dataJSON;
                                 // console.log(dataJSON);
-                                element = "<tr><th scope='col'>Select Secondary Stock</th><th scope='col'>Key</th></tr>";
+                                element = "<tr><th scope='col'>Select Secondary Stock</th><th scope='col'>Ticker</th></tr>";
                                 for (var key in dataJSON) {
                                     element += "<tr>";
                                     element += "<td>";
@@ -349,7 +349,7 @@
                             var jsonData = $.get("http://107.21.167.79:5004/stocks/retrieveByCategory/Financials", function (dataJSON) {
                                 dataset = dataJSON;
                                 // console.log(dataJSON);
-                                element = "<tr><th scope='col'>Select Secondary Stock</th><th scope='col'>Key</th></tr>";
+                                element = "<tr><th scope='col'>Select Secondary Stock</th><th scope='col'>Ticker</th></tr>";
                                 for (var key in dataJSON) {
                                     element += "<tr>";
                                     element += "<td>";
@@ -390,7 +390,7 @@
                                     
                                     primaryStock = pStock;
                                     secondaryStocks = [primaryStock];
-                                    elementt = "<tr><th scope='col'>Select Secondary Stock</th><th scope='col'>Key</th></tr>";
+                                    elementt = "<tr><th scope='col'>Select Secondary Stock</th><th scope='col'>Ticker</th></tr>";
                                     for (var key in dataset) {
                                         if(key != pStock){
                                             elementt += "<tr>";
@@ -455,31 +455,6 @@
 
                             <script>
                                 // #### Final Value START ####
-                                // function showMetrics(secondary){
-                                //     alert(document.getElementById(secondary).checked)
-                                //     if(document.getElementById(secondary).checked){
-                                //         // alert(secondary.slice(0,-1))
-                                //         num = secondary.slice(0,-1)
-                                //         secondaryStocks.push(num);
-
-                                //         // alert(document.getElementById(secondary).checked);
-                                //     }else{
-                                //         index = secondaryStocks.indexOf(secondary.slice(0,-1));
-                                //         secondaryStocks.splice(index, 1);
-                                //     }
-                                //     alert(JSON.stringify(secondaryStocks));
-                                //     for(i=0; i<metrics.length;i++){
-                                //         length
-                                //     }
-                                //     var jsonData = $.get("http://107.21.167.79:5004/stocks/retrieveTickerStatistics/"+primaryStock, function (dataJSON) {
-
-                                //     });
-
-
-                                // }
-
-                                // #### Final Value END ####
-
                                 function showMetrics(secondary){
                                     // alert(document.getElementById(secondary).checked)
                                     if(document.getElementById(secondary).checked){
@@ -493,35 +468,110 @@
                                         secondaryStocks.splice(index, 1);
                                     }
                                     // alert(JSON.stringify(secondaryStocks));
-                                    metrics = ["ebitda", "peRatio", "priceToSalesRatio", "enterpriseValueOverEBITDA"];
-                                    metricsName = ["EBITDA", "PE Ratio", "Price To Sales Ratio", "Enterprise Value Over EBITDA", "Interst Coverage", "Three Year Revenue Growth per Share", "Three Year Operating Growth Per Share", "Three Year Income Growth Per Share"];
-                                    values = ["29.3", "55", "20", "52"];
-                                    minValues = ["-15.5", "18", "4.7", "-23"];
-                                    maxValues = ["36.2", "97", "20", "40"];
-                                    lagging = ["Workday Inc", "Oracle Corporation", "Oracle Corporation", "Workday Inc"];
-                                    leading = ["Oracle Corporation", "Workday Inc", "Adobe Inc", "Intuit Inc."];
-                                    string = "<tr><th scope='col'>Metric</th><th scope='col'>Value</th><th scope='col'>Min</th><th scope='col'>Max</th><th scope='col'>Lagging Peer</th><th scope='col'>Leading Peer</th></tr>";
-                                    for(i=0; i<metrics.length;i++){
-                                        string += "<tr><td>";
-                                        string += metricsName[i];
-                                        string += "</td><td>";
-                                        string += values[i];
-                                        string += "</td><td>";
-                                        string += minValues[i];
-                                        string += "</td><td>";
-                                        string += maxValues[i];
-                                        string += "</td><td>";
-                                        string += lagging[i];
-                                        string += "</td><td>";
-                                        string += leading[i];
-                                        string += "</td></tr>";
-                                        
-                                        
+                                    tempStocks = [];
+                                    for(i=0; i<secondaryStocks.length;i++){
+                                        var jsonData = $.get("http://107.21.167.79:5004/stocks/retrieveTickerStatistics/"+secondaryStocks[i], function (dataJSON) {
+                                            tempStocks.push(dataJSON);
+                                            secondaryStockMetrics = tempStocks;
+                                            // alert(JSON.stringify(secondaryStockMetrics));
+
+                                            if(secondaryStockMetrics.length == secondaryStocks.length){
+                                                // alert(JSON.stringify(tempStocks));
+                                                metricsName = ["EBITDA", "PE Ratio", "Price To Sales Ratio", "Enterprise Value Over EBITDA", "Interst Coverage", "Three Year Revenue Growth per Share", "Three Year Operating Growth Per Share", "Three Year Income Growth Per Share"];
+                                                string = "<tr><th scope='col'>Metric</th><th scope='col'>Value</th><th scope='col'>Min</th><th scope='col'>Max</th><th scope='col'>Lagging Peer</th><th scope='col'>Leading Peer</th></tr>";
+                                                for(x=0; x<metrics.length; x++){
+                                                    tempArray = [];
+                                                    for(y=0;y<tempStocks.length;y++){
+                                                        tempArray.push(tempStocks[y][metrics[x]]);
+                                                        // alert(JSON.stringify(tempArray)); 
+                                                    }
+                                                    minValue = Math.min.apply(null,tempArray);
+                                                    maxValue = Math.max.apply(null,tempArray);
+                                                    for(z=0;z<tempArray.length;z++){
+                                                        if(minValue==tempArray[z]){
+                                                            lagger = secondaryStocks[z];
+                                                        }
+                                                        if(maxValue==tempArray[z]){
+                                                            speedster = secondaryStocks[z];
+                                                        }
+                                                    }
+
+                                                    
+                                                    // minIndex = tempArray.prototype.indexOf(minValue);
+                                                    // lagger = metricsName[minIndex];
+                                                    string += "<tr><td>";
+                                                    string += metricsName[x];
+                                                    string += "</td><td>";
+                                                    string += tempStocks[0][metrics[x]];
+                                                    string += "</td><td>";
+                                                    string += minValue;
+                                                    string += "</td><td>";
+                                                    string += maxValue;
+                                                    string += "</td><td>";
+                                                    string += lagger;
+                                                    string += "</td><td>";
+                                                    string += speedster;
+                                                    string += "</td></tr>";
+
+                                                }
+                                                $('#metricsTable').html($.parseHTML(string));
+                                            }
+                                        });
                                     }
+                                    // alert(JSON.stringify(secondaryStockMetrics));
                                     
 
-                                    $('#metricsTable').html($.parseHTML(string));
+
                                 }
+
+                                // #### Final Value END ####
+                                
+
+                                // ##### Hardcode START #####
+                                // function showMetrics(secondary){
+                                //     // alert(document.getElementById(secondary).checked)
+                                //     if(document.getElementById(secondary).checked){
+                                //         // alert(secondary.slice(0,-1))
+                                //         num = secondary.slice(0,-1)
+                                //         secondaryStocks.push(num);
+
+                                //         // alert(document.getElementById(secondary).checked);
+                                //     }else{
+                                //         index = secondaryStocks.indexOf(secondary.slice(0,-1));
+                                //         secondaryStocks.splice(index, 1);
+                                //     }
+                                //     // alert(JSON.stringify(secondaryStocks));
+                                //     metrics = ["ebitda", "peRatio", "priceToSalesRatio", "enterpriseValueOverEBITDA"];
+                                //     metricsName = ["EBITDA", "PE Ratio", "Price To Sales Ratio", "Enterprise Value Over EBITDA", "Interst Coverage", "Three Year Revenue Growth per Share", "Three Year Operating Growth Per Share", "Three Year Income Growth Per Share"];
+                                //     values = ["29.3", "55", "20", "52"];
+                                //     minValues = ["-15.5", "18", "4.7", "-23"];
+                                //     maxValues = ["36.2", "97", "20", "40"];
+                                //     lagging = ["Workday Inc", "Oracle Corporation", "Oracle Corporation", "Workday Inc"];
+                                //     leading = ["Oracle Corporation", "Workday Inc", "Adobe Inc", "Intuit Inc."];
+                                //     string = "<tr><th scope='col'>Metric</th><th scope='col'>Value</th><th scope='col'>Min</th><th scope='col'>Max</th><th scope='col'>Lagging Peer</th><th scope='col'>Leading Peer</th></tr>";
+                                //     for(i=0; i<metrics.length;i++){
+                                //         string += "<tr><td>";
+                                //         string += metricsName[i];
+                                //         string += "</td><td>";
+                                //         string += values[i];
+                                //         string += "</td><td>";
+                                //         string += minValues[i];
+                                //         string += "</td><td>";
+                                //         string += maxValues[i];
+                                //         string += "</td><td>";
+                                //         string += lagging[i];
+                                //         string += "</td><td>";
+                                //         string += leading[i];
+                                //         string += "</td></tr>";
+                                        
+                                        
+                                //     }
+                                    
+
+                                //     $('#metricsTable').html($.parseHTML(string));
+                                // }
+
+                                // ##### Hardcode END #####
 
 
                                 // function showMetrics(secondary){
@@ -664,15 +714,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-sm-10 col-lg-8">
-                    <div class="nl-content text-center">
-                        <h2>Subscribe to our newsletter</h2>
-                        <form action="#" method="post">
-                            <input type="email" name="nl-email" id="nlemail" placeholder="Your e-mail">
-                            <button type="submit">Subscribe</button>
-                        </form>
-                        <p>Curabitur elit turpis, maximus quis ullamcorper sed, maximus eu neque. Cras ultrices erat nec
-                            auctor blandit.</p>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -680,142 +722,7 @@
     <!-- ##### Newsletter Area End ###### -->
 
     <!-- ##### Footer Area Start ##### -->
-    <footer class="footer-area section-padding-100-0">
-        <div class="container">
-            <div class="row">
-
-                <!-- Single Footer Widget -->
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-footer-widget mb-100">
-                        <h5 class="widget-title">About Us</h5>
-                        <!-- Nav -->
-                        <nav>
-                            <ul>
-                                <li><a href="#">Homepage</a></li>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Services &amp; Offers</a></li>
-                                <li><a href="#">Portfolio Presentation</a></li>
-                                <li><a href="#">The News</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-
-                <!-- Single Footer Widget -->
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-footer-widget mb-100">
-                        <h5 class="widget-title">Solutions</h5>
-                        <!-- Nav -->
-                        <nav>
-                            <ul>
-                                <li><a href="#">Our Loans</a></li>
-                                <li><a href="#">Trading &amp; Commerce</a></li>
-                                <li><a href="#">Banking &amp; Private Equity</a></li>
-                                <li><a href="#">Industrial &amp; Factory</a></li>
-                                <li><a href="#">Financial Solutions</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-
-                <!-- Single Footer Widget -->
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-footer-widget mb-100">
-                        <h5 class="widget-title">Our Loans</h5>
-                        <!-- Nav -->
-                        <nav>
-                            <ul>
-                                <li><a href="#">Our Loans</a></li>
-                                <li><a href="#">Trading &amp; Commerce</a></li>
-                                <li><a href="#">Banking &amp; Private Equity</a></li>
-                                <li><a href="#">Industrial &amp; Factory</a></li>
-                                <li><a href="#">Financial Solutions</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-
-                <!-- Single Footer Widget -->
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-footer-widget mb-100">
-                        <h5 class="widget-title">Latest News</h5>
-
-                        <!-- Single News Area -->
-                        <div class="single-latest-news-area d-flex align-items-center">
-                            <div class="news-thumbnail">
-                                <img src="img/bg-img/7.jpg" alt="">
-                            </div>
-                            <div class="news-content">
-                                <a href="#">How to get the best loan?</a>
-                                <div class="news-meta">
-                                    <a href="#" class="post-author"><img src="img/core-img/pencil.png" alt=""> Jane
-                                        Smith</a>
-                                    <a href="#" class="post-date"><img src="img/core-img/calendar.png" alt=""> April
-                                        26</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single News Area -->
-                        <div class="single-latest-news-area d-flex align-items-center">
-                            <div class="news-thumbnail">
-                                <img src="img/bg-img/8.jpg" alt="">
-                            </div>
-                            <div class="news-content">
-                                <a href="#">A new way to get a loan</a>
-                                <div class="news-meta">
-                                    <a href="#" class="post-author"><img src="img/core-img/pencil.png" alt=""> Jane
-                                        Smith</a>
-                                    <a href="#" class="post-date"><img src="img/core-img/calendar.png" alt=""> April
-                                        26</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single News Area -->
-                        <div class="single-latest-news-area d-flex align-items-center">
-                            <div class="news-thumbnail">
-                                <img src="img/bg-img/9.jpg" alt="">
-                            </div>
-                            <div class="news-content">
-                                <a href="#">Finance you home</a>
-                                <div class="news-meta">
-                                    <a href="#" class="post-author"><img src="img/core-img/pencil.png" alt=""> Jane
-                                        Smith</a>
-                                    <a href="#" class="post-date"><img src="img/core-img/calendar.png" alt=""> April
-                                        26</a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Copywrite Area -->
-        <div class="copywrite-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="copywrite-content d-flex flex-wrap justify-content-between align-items-center">
-                            <!-- Footer Logo -->
-                            <a href="index.html" class="footer-logo"><img src="img/core-img/logo.png" alt=""></a>
-
-                            <!-- Copywrite Text -->
-                            <p class="copywrite-text"><a href="#">
-                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                    Copyright &copy;
-                                    <script>document.write(new Date().getFullYear());</script> All rights reserved by
-                                    Blueprint Technologies
-                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    
     <!-- ##### Footer Area Start ##### -->
 
     <!-- ##### All Javascript Script ##### -->
